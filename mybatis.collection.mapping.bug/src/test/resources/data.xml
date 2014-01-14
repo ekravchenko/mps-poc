@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<person Person_PK="id1" PersonName="John" PersonSurname="Smith" IdentyNumber="0123456789"/>
+	<person Person_PK="id2" PersonName="Neo" PersonSurname="Anderson" IdentyNumber="1234567890"/>
+	<person Person_PK="id3" PersonName="John" PersonSurname="Doe" IdentyNumber="9876543210"/>
+	
+	<child Child_PK="id1" Name="Keven" Surname="Smith" Person_FK="id1"/>
+	<child Child_PK="id2" Name="Kenny" Surname="Smith" Person_FK="id1"/>
+	<child Child_PK="id3" Name="Michael" Surname="Smith" Person_FK="id1"/>
+	<child Child_PK="id4" Name="Molly" Surname="Anderson" Person_FK="id2"/>
+	<child Child_PK="id5" Name="Dotty" Surname="Smith" Person_FK="id1"/>
+	<child Child_PK="id6" Name="Bridget" Surname="Doe" Person_FK="id3"/>
+	<child Child_PK="id7" Name="Scally" Surname="Doe" Person_FK="id3"/>	
+</dataset>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.PersonMapper">
+
+	<sql id="Common_SELECT">
+		SELECT
+			p.Person_PK AS Person_PK
+			, p.IdentyNumber AS IdentyNumber
+			, p.PersonName AS PesonName
+			, p.PersonSurname AS PersonSurname
+			, c.Child_PK AS child_Child_PK
+			, c.Name AS child_Name
+			, c.Surname AS child_Surname
+		FROM person p
+		INNER JOIN child c ON (p.Person_PK = c.Person_FK)
+	</sql>
+	<resultMap type="com.example.domain.ChildVO" id="Child">
+		<id property="childPK" column="Child_PK" jdbcType="VARBINARY"/>
+		<result property="childName" column="Name" jdbcType="VARCHAR"/>
+		<result property="childSurname" column="Surname" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<resultMap id="Person" type="com.example.domain.PersonVO">
+		<id property="personPK" column="Person_PK" jdbcType="VARBINARY"/>
+		<result property="identyNumber" column="IdentyNumber" jdbcType="VARCHAR"/>
+		<result property="personName" column="PesonName" jdbcType="VARCHAR"/>
+		<result property="personSurname" column="PersonSurname" jdbcType="VARCHAR"/>
+		<collection property="childList" ofType="com.example.domain.ChildVO" resultMap="Child" columnPrefix="child_"/>
+	</resultMap>
+	
+	<resultMap type="com.example.domain.PersonVO" id="PersonIDNumber">
+		<id property="identyNumber" column="IdentyNumber" jdbcType="VARCHAR"/>
+		<result property="personPK" column="Person_PK" jdbcType="VARBINARY"/>		
+		<result property="personName" column="PesonName" jdbcType="VARCHAR"/>
+		<result property="personSurname" column="PersonSurname" jdbcType="VARCHAR"/>
+		<collection property="childList" ofType="com.example.domain.ChildVO" resultMap="Child" columnPrefix="child_"/>	
+	</resultMap>
+	
+
+	<select id="getPersonListWithPKAsID" resultMap="Person">
+		<include refid="Common_SELECT"/>
+	</select>
+	
+	<select id="getPersonListWithIdentyNumberAsID" resultMap="PersonIDNumber">
+		<include refid="Common_SELECT"/>
+	</select>
+	
+	<select id="getChildren" resultMap="Child">
+		SELECT 
+			c.Child_PK AS Child_PK
+			, c.Name AS Name
+			, c.Surname AS Surname
+		FROM child c
+	</select>
+	
+</mapper>
