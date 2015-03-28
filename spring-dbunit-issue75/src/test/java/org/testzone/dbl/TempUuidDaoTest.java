@@ -57,7 +57,6 @@ public class TempUuidDaoTest {
     @Test
     @ExpectedDatabase(value = "testUpdate.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testUpdateUuid() throws Exception {
-        int nb = size();
         TempUuids tu = tempUuidDaoI.findOne(1);
         tu.setUuid("4b2f02ca-d857-4c95-b7fa-ee6283ce0d66");
         tempUuidDaoI.save(tu);
@@ -73,7 +72,7 @@ public class TempUuidDaoTest {
         tu.setId(3);
         tu.setUuid("4b2f02ca-d857-4c95-b7fa-ee6283ce0d67");
         tempUuidDaoI.save(tu);
-        // assertEquals(nb + 1, size());
+        assertEquals(nb + 1, size());
     }
 
 }
