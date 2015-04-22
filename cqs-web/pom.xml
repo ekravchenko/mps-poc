@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cqs-web</artifactId>
+    <groupId>org.testingzone</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <!-- GWT needs at least java 1.5 -->
+        <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <log4j.version>1.2.17</log4j.version>
+        <spring4gwt.version>0.0.1</spring4gwt.version>
+        <env.BUILD_TAG>qwer</env.BUILD_TAG>
+        <gwt-stomp.version>1.0</gwt-stomp.version>
+        <gwt-cache-filter.version>0.6</gwt-cache-filter.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-servlet</artifactId>
+            <version>${gwt.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${gwt.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>coza.healthbridge</groupId>
+            <artifactId>healthbridge.gwt.base</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.realityforge.gwt.cache-filter</groupId>
+            <artifactId>gwt-cache-filter</artifactId>
+            <version>${gwt-cache-filter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.nerdrobot</groupId>
+            <artifactId>gwt-stomp</artifactId>
+            <version>${gwt-stomp.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!-- 'dev' profile is used to speed-up GWT compilation.
+     Instead of compiling js that is friendly to all browsers we will only compile for 1 browser.
+     That browser is configured in MpsDev module via 'user.agent' property -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>gwt-maven-plugin</artifactId>
+                        <configuration>
+                            <module>coza.healthbridge.MpsDev</module>
+                            <draftCompile>true</draftCompile>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <!-- Generate compiled stuff in the folder used for developing mode -->
+        <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+
+        <plugins>
+            <!-- GWT Maven Plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>2.6.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>test</goal>
+                            <goal>generateAsync</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <!-- Plugin configuration. There are many available options, see
+                  gwt-maven-plugin documentation at codehaus.org -->
+                <configuration>
+                    <!--<logLevel>DEBUG</logLevel>-->
+                    <runTarget>index.html</runTarget>
+                    <module>coza.healthbridge.Mps</module>
+                    <hostedWebapp>${webappDirectory}</hostedWebapp>
+                    <compileSourcesArtifacts>
+                        <artifact>coza.healthbridge:mps.vo</artifact>
+                        <artifact>coza.healthbridge:mps.wi</artifact>
+                        <artifact>coza.healthbridge:mps.service</artifact>
+                        <artifact>coza.healthbridge:mps.wsocket.api</artifact>
+                        <artifact>coza.healthbridge:healthbridge.gwt.base</artifact>
+                        <artifact>coza.healthbridge.sharedservices:shared-services-ws-client</artifact>
+                    </compileSourcesArtifacts>
+                    <style>OBF</style>
+                </configuration>
+            </plugin>
+
+            <!-- Copy static web files before executing gwt:run -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exploded</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <webappDirectory>${webappDirectory}</webappDirectory>
+                    <webResources>
+                        <resource>
+                            <directory>${project.basedir}/src/main/webapp</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
