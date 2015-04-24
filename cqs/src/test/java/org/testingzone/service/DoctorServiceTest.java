@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.testingzone.config.MyConfig;
+import org.testingzone.service.doctor.DoctorService;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
 import org.testingzone.vo.doctor.SimpleFilter;
 

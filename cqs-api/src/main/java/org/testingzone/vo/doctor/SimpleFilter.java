@@ -4,20 +4,31 @@ public class SimpleFilter {
 
     public static final SimpleFilter EMPTY = new SimpleFilter(null, null);
 
-    private final byte[] businessPK;
+    private  String businessPK;
 
-    private final String text;
+    private  String text;
 
-    public SimpleFilter(byte[] businessPK, String text) {
+    public SimpleFilter(String businessPK, String text) {
         this.businessPK = businessPK;
         this.text = text;
     }
 
-    public byte[] getBusinessPK() {
-        return businessPK;
+    public SimpleFilter() {
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setBusinessPK(String businessPK) {
+        this.businessPK = businessPK;
     }
 
     public String getText() {
         return text;
+    }
+
+    public String getBusinessPK() {
+        return businessPK;
     }
 }

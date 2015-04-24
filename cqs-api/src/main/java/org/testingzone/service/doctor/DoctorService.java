@@ -1,4 +1,4 @@
-package org.testingzone.service;
+package org.testingzone.service.doctor;
 
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
 import org.testingzone.vo.doctor.SimpleFilter;
