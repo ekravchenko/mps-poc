@@ -62,6 +62,7 @@ public class TempUuidDaoTest {
         tempUuidDaoI.save(tu);
         tu = tempUuidDaoI.findOne(1);
         assertEquals("4b2f02ca-d857-4c95-b7fa-ee6283ce0d66", tu.getUuid());
+        tempUuidDaoI.findAll();
     }
 
     @Test

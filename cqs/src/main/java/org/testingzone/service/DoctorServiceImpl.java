@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.testingzone.dbl.doctor.query.DoctorSummaryQuery;
 import org.testingzone.service.doctor.DoctorService;
+import org.testingzone.vo.base.PageFilter;
+import org.testingzone.vo.base.SimpleFilter;
+import org.testingzone.vo.base.SummaryPageInfo;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
-import org.testingzone.vo.doctor.SimpleFilter;
 
 import java.util.List;
 
@@ -16,11 +18,12 @@ public class DoctorServiceImpl implements DoctorService {
     @Autowired
     private DoctorSummaryQuery doctorSummaryQuery;
 
-    public long count(SimpleFilter filter) {
-        return doctorSummaryQuery.count(filter);
+    @Override
+    public SummaryPageInfo<DoctorSummaryInfo> getDoctorSummaryPageInfo(SimpleFilter filter, PageFilter pageFilter) {
+        return doctorSummaryQuery.getSummaryPageInfo(filter, pageFilter);
     }
 
-    public List<DoctorSummaryInfo> getDoctorSummaries(SimpleFilter filter) {
-        return doctorSummaryQuery.getDoctorSummaries(filter);
+    public List<DoctorSummaryInfo> getDoctorSummaries(SimpleFilter filter, PageFilter pageFilter) {
+        return doctorSummaryQuery.getSummaryInfoList(filter, pageFilter);
     }
 }

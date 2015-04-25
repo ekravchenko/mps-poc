@@ -9,8 +9,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.testingzone.config.MyConfig;
 import org.testingzone.service.doctor.DoctorService;
+import org.testingzone.vo.base.PageFilter;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
-import org.testingzone.vo.doctor.SimpleFilter;
+import org.testingzone.vo.base.SimpleFilter;
 
 import java.util.List;
 
@@ -22,14 +23,8 @@ public class DoctorServiceTest {
     private DoctorService doctorService;
 
     @Test
-    public void testCount() {
-        long count = doctorService.count(SimpleFilter.EMPTY);
-        Assert.assertEquals(2, count);
-    }
-
-    @Test
     public void testGetSummaries() {
-        List<DoctorSummaryInfo> doctorSummaries = doctorService.getDoctorSummaries(SimpleFilter.EMPTY);
+        List<DoctorSummaryInfo> doctorSummaries = doctorService.getDoctorSummaries(SimpleFilter.EMPTY, PageFilter.NONE);
         Assert.assertNotNull(doctorSummaries);
         Assert.assertEquals(2, doctorSummaries.size());
     }

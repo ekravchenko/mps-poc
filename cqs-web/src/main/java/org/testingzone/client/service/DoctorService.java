@@ -3,6 +3,7 @@ package org.testingzone.client.service;
 import org.fusesource.restygwt.client.MethodCallback;
 import org.fusesource.restygwt.client.RestService;
 import org.testingzone.service.doctor.DoctorServicePath;
+import org.testingzone.vo.base.SummaryPageInfo;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
 
 import javax.ws.rs.GET;
@@ -14,9 +15,14 @@ import java.util.List;
 public interface DoctorService extends RestService {
 
     @GET
-    void getDoctors(@QueryParam("businessPK")
-                    String businessPK,
-                    @QueryParam("text")
-                    String text,
-                    MethodCallback<List<DoctorSummaryInfo>> callback);
+    void getDoctorSummaryPageInfo(
+            @QueryParam("businessPK")
+            String businessPK,
+            @QueryParam("text")
+            String text,
+            @QueryParam("pageIndex")
+            int pageIndex,
+            @QueryParam("itemsPerPage")
+            int itemsPerPage,
+            MethodCallback<SummaryPageInfo<DoctorSummaryInfo>> callback);
 }

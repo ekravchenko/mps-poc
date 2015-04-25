@@ -7,13 +7,12 @@ import com.mvp4g.client.view.LazyView;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
 import org.testingzone.client.service.DoctorService;
+import org.testingzone.vo.base.SummaryPageInfo;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
-
-import java.util.List;
 
 
 @Presenter(view = DoctorListView.class)
-public class DoctorListPresenter extends LazyPresenter<DoctorListPresenter.DoctorListView, DoctorEventBus>{
+public class DoctorListPresenter extends LazyPresenter<DoctorListPresenter.DoctorListView, DoctorEventBus> {
 
     interface DoctorListView extends LazyView {
 
@@ -22,21 +21,18 @@ public class DoctorListPresenter extends LazyPresenter<DoctorListPresenter.Docto
     @Override
     public void createPresenter() {
         super.createPresenter();
+
         DoctorService doctorService = GWT.create(DoctorService.class);
-        doctorService.getDoctors("business", "text", new MethodCallback<List<DoctorSummaryInfo>>() {
+        doctorService.getDoctorSummaryPageInfo("business", "text", 0, 20, new MethodCallback<SummaryPageInfo<DoctorSummaryInfo>>() {
             @Override
             public void onFailure(Method method, Throwable throwable) {
                 System.out.println("Failed!");
             }
 
             @Override
-            public void onSuccess(Method method, List<DoctorSummaryInfo> doctorSummaryInfos) {
+            public void onSuccess(Method method, SummaryPageInfo<DoctorSummaryInfo> pageInfo) {
                 System.out.println("Success!");
             }
         });
-
-
-
-
     }
 }

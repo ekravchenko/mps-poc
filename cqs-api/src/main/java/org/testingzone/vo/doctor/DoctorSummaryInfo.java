@@ -11,6 +11,10 @@ public class DoctorSummaryInfo {
     private final String fullName;
     @JsonProperty
     private final String billingPracticeNumber;
+    @JsonProperty
+    private final String practiceName;
+    @JsonProperty
+    private final String speciality;
 
     @JsonCreator
     public DoctorSummaryInfo(
@@ -19,10 +23,16 @@ public class DoctorSummaryInfo {
             @JsonProperty("fullName")
             String fullName,
             @JsonProperty("billingPracticeNumber")
-            String billingPracticeNumber) {
+            String billingPracticeNumber,
+            @JsonProperty("practiceName")
+            String practiceName,
+            @JsonProperty("speciality")
+            String speciality) {
         this.id = id;
         this.fullName = fullName;
         this.billingPracticeNumber = billingPracticeNumber;
+        this.practiceName = practiceName;
+        this.speciality = speciality;
     }
 
     public String getId() {
@@ -35,5 +45,13 @@ public class DoctorSummaryInfo {
 
     public String getBillingPracticeNumber() {
         return billingPracticeNumber;
+    }
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public String getPracticeName() {
+        return practiceName;
     }
 }

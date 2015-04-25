@@ -3,33 +3,40 @@ package org.testingzone.dbl.doctor.query;
 import com.mysema.query.jpa.impl.JPAQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.testingzone.dbo.QDoctor;
-import org.testingzone.dbo.query.DoctorSummaryInfoWrapper;
-import org.testingzone.dbo.query.InfoWrapperList;
-import org.testingzone.dbo.query.QDoctorSummaryInfoWrapper;
+import org.testingzone.dbl.base.query.AbstractSummaryQuery;
+import org.testingzone.dbo.business.QBusiness;
+import org.testingzone.dbo.doctor.QDoctor;
+import org.testingzone.dbo.doctor.query.DoctorSummaryInfoWrapper;
+import org.testingzone.dbo.base.InfoWrapperList;
+import org.testingzone.dbo.doctor.query.QDoctorSummaryInfoWrapper;
+import org.testingzone.vo.base.PageFilter;
+import org.testingzone.vo.base.SimpleFilter;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
-import org.testingzone.vo.doctor.SimpleFilter;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
 @Component
-public class DoctorSummaryQuery {
+public class DoctorSummaryQuery extends AbstractSummaryQuery<SimpleFilter, DoctorSummaryInfo> {
 
-    private final static QDoctor Q_DOCTOR = QDoctor.doctor;
+    private DoctorSummaryQueryBuilder queryBuilder;
 
     @Autowired
-    private EntityManager entityManager;
-
-
-    public long count(SimpleFilter filter) {
-        JPAQuery jpaQuery = new JPAQuery(entityManager);
-        return jpaQuery.from(Q_DOCTOR).count();
+    public DoctorSummaryQuery(DoctorSummaryQueryBuilder queryBuilder) {
+        this.queryBuilder = queryBuilder;
     }
 
-    public List<DoctorSummaryInfo> getDoctorSummaries(SimpleFilter filter) {
-        JPAQuery jpaQuery = new JPAQuery(entityManager);
-        List<DoctorSummaryInfoWrapper> list = jpaQuery.from(Q_DOCTOR).list(new QDoctorSummaryInfoWrapper(Q_DOCTOR.doctorPk, Q_DOCTOR.doctorName, Q_DOCTOR.practiceNumber));
+    public long count(SimpleFilter filter) {
+        JPAQuery jpaQuery = queryBuilder.buildQuery(filter);
+        return jpaQuery.count();
+    }
+
+    public List<DoctorSummaryInfo> getSummaryInfoList(SimpleFilter filter, PageFilter pageFilter) {
+        QDoctor doctor = QDoctor.doctor;
+        QBusiness business = QBusiness.business;
+        JPAQuery jpaQuery = queryBuilder.buildQuery(filter, pageFilter);
+        List<DoctorSummaryInfoWrapper> list = jpaQuery.list(
+                new QDoctorSummaryInfoWrapper(doctor.doctorPk, doctor.doctorName, doctor.practiceNumber,
+                        business.businessName, doctor.specialityDescription));
         return InfoWrapperList.unwrap(list);
     }
 }
