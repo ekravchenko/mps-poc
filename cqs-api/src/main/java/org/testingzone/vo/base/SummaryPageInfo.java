@@ -1,26 +1,35 @@
 package org.testingzone.vo.base;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@ToString
 public class SummaryPageInfo<T> {
 
+    @JsonProperty
     private long totalCount;
 
+    @JsonProperty
     private List<T> items;
 
-    public SummaryPageInfo(long totalCount) {
+    @JsonCreator
+    public SummaryPageInfo(@JsonProperty("totalCount") long totalCount) {
         this(totalCount, new ArrayList<T>());
     }
 
-    public SummaryPageInfo(long totalCount, List<T> items) {
+    @JsonCreator
+    public SummaryPageInfo(@JsonProperty("totalCount") long totalCount, @JsonProperty("items") List<T> items) {
         this.totalCount = totalCount;
         this.items = items;
+    }
+
+    public long getTotalCount() {
+        return totalCount;
+    }
+
+    public List<T> getItems() {
+        return items;
     }
 }
