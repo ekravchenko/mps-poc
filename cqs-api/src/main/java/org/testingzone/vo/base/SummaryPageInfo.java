@@ -14,13 +14,12 @@ public class SummaryPageInfo<T> {
     @JsonProperty
     private List<T> items;
 
-    @JsonCreator
-    public SummaryPageInfo(@JsonProperty("totalCount") long totalCount) {
+    public SummaryPageInfo(long totalCount) {
         this(totalCount, new ArrayList<T>());
     }
 
     @JsonCreator
-    public SummaryPageInfo(@JsonProperty("totalCount") long totalCount, @JsonProperty("list") List<T> items) {
+    public SummaryPageInfo(@JsonProperty("totalCount") long totalCount, @JsonProperty("items") List<T> items) {
         this.totalCount = totalCount;
         this.items = items;
     }

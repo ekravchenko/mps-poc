@@ -4,7 +4,6 @@ import com.mysema.query.types.EntityPath;
 import com.mysema.query.types.Predicate;
 import com.mysema.query.types.expr.BooleanExpression;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Component;
 import org.testingzone.dbl.base.query.builder.Query;
 import org.testingzone.dbl.base.query.builder.QueryItem;
 import org.testingzone.dbl.base.query.builder.QueryProvider;
@@ -21,10 +20,9 @@ public class DoctorSummaryQueryItems implements QueryProvider<SimpleFilter> {
     @Override
     public Query createQuery(SimpleFilter simpleFilter) {
         QDoctor doctor = QDoctor.doctor;
-        QBusiness business = QBusiness.business;
 
         QueryItem searchTextQueryItem = getSearchTextQueryItem(doctor, simpleFilter.getText());
-        QueryItem businessQueryItem = getBusinessQueryItem(business, simpleFilter.getBusinessPK());
+        QueryItem businessQueryItem = getBusinessQueryItem(doctor, simpleFilter.getBusinessPK());
 
         return Query.EMPTY.and(searchTextQueryItem).and(businessQueryItem);
     }
@@ -45,8 +43,10 @@ public class DoctorSummaryQueryItems implements QueryProvider<SimpleFilter> {
         return QueryItem.EMPTY;
     }
 
-    private QueryItem getBusinessQueryItem(QBusiness business, String businessPK) {
+    private QueryItem getBusinessQueryItem(QDoctor doctor, String businessPK) {
         if (StringUtils.isNotBlank(businessPK)) {
+            QBusiness business = QBusiness.business;
+            JoinRequest businessJoin = new LeftJoinRequest(doctor.business, business);
             BinaryKey businessKey = BinaryKey.valueOf(businessPK);
             BooleanExpression businessPredicate = business.businessPk.eq(businessKey);
 
@@ -56,7 +56,7 @@ public class DoctorSummaryQueryItems implements QueryProvider<SimpleFilter> {
             JoinRequest childBusinessJoin = new LeftJoinRequest(business.businessRelationLinksForChildBusinessFk, QBusinessRelationLink.businessRelationLink);
 
             Predicate predicate = businessPredicate.or(childBusinessPredicate);
-            return new QueryItem(predicate, childBusinessJoin);
+            return new QueryItem(predicate, businessJoin, childBusinessJoin);
         }
         return QueryItem.EMPTY;
     }
