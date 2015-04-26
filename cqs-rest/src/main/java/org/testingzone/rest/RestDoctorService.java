@@ -33,7 +33,7 @@ public class RestDoctorService {
                                                       @RequestParam(value = "order", required = false) String order) {
         SimpleFilter filter = new SimpleFilter(businessPK, text);
         PageFilter pageFilter = new PageFilter(pageIndex, itemsPerPage);
-        SortFilter sortFilter = new SortFilter(sort, SortOrder.valueOf(order));
+        SortFilter sortFilter = new SortFilter(sort, SortOrder.from(order));
         return doctorService.getDoctorSummaries(filter, pageFilter, sortFilter);
     }
 
@@ -46,7 +46,7 @@ public class RestDoctorService {
                                                           @RequestParam(value = "order", required = false) String order) {
         SimpleFilter filter = new SimpleFilter(businessPK, text);
         PageFilter pageFilter = new PageFilter(pageIndex, itemsPerPage);
-        SortFilter sortFilter = new SortFilter(sort, SortOrder.valueOf(order));
+        SortFilter sortFilter = new SortFilter(sort, SortOrder.from(order));
         return doctorService.getDoctorSummaryPageInfo(filter, pageFilter, sortFilter);
     }
 }

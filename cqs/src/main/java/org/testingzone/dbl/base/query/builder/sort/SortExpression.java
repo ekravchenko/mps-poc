@@ -1,9 +1,9 @@
 package org.testingzone.dbl.base.query.builder.sort;
 
 import com.mysema.query.types.Expression;
+import com.mysema.query.types.Order;
 import lombok.Getter;
 import lombok.ToString;
-import org.testingzone.vo.base.SortOrder;
 
 @Getter
 @ToString
@@ -13,9 +13,9 @@ public final class SortExpression {
 
     private final Expression expression;
 
-    private final SortOrder sortOrder;
+    private final Order sortOrder;
 
-    public SortExpression(Expression expression, SortOrder sortOrder) {
+    public SortExpression(Expression expression, Order sortOrder) {
         this.expression = expression;
         this.sortOrder = sortOrder;
     }

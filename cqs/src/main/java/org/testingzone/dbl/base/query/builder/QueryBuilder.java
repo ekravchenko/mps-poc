@@ -1,12 +1,10 @@
 package org.testingzone.dbl.base.query.builder;
 
 import com.mysema.query.jpa.impl.JPAQuery;
-import com.mysema.query.types.Order;
 import com.mysema.query.types.OrderSpecifier;
 import org.testingzone.dbl.base.query.builder.join.JoinRequest;
 import org.testingzone.dbl.base.query.builder.sort.SortExpression;
 import org.testingzone.vo.base.PageFilter;
-import org.testingzone.vo.base.SortOrder;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
@@ -101,9 +99,7 @@ public final class QueryBuilder<Filter> {
     @SuppressWarnings("unchecked")
     private JPAQuery applySorting(JPAQuery jpaQuery, SortExpression sortExpression) {
         if(sortExpression.getExpression() != null) {
-            SortOrder sortOrder = sortExpression.getSortOrder();
-            Order order = SortOrder.DESC == sortOrder ? Order.DESC : Order.ASC;
-            OrderSpecifier orderSpecifier = new OrderSpecifier(order, sortExpression.getExpression());
+            OrderSpecifier orderSpecifier = new OrderSpecifier(sortExpression.getSortOrder(), sortExpression.getExpression());
             jpaQuery.orderBy(orderSpecifier);
         }
         return jpaQuery;

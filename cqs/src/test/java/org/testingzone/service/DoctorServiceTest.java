@@ -10,6 +10,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.testingzone.config.MyConfig;
 import org.testingzone.service.doctor.DoctorService;
 import org.testingzone.vo.base.PageFilter;
+import org.testingzone.vo.base.SortFilter;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
 import org.testingzone.vo.base.SimpleFilter;
 
@@ -24,7 +25,7 @@ public class DoctorServiceTest {
 
     @Test
     public void testGetSummaries() {
-        List<DoctorSummaryInfo> doctorSummaries = doctorService.getDoctorSummaries(SimpleFilter.EMPTY, PageFilter.NONE);
+        List<DoctorSummaryInfo> doctorSummaries = doctorService.getDoctorSummaries(SimpleFilter.EMPTY, PageFilter.NONE, SortFilter.NONE);
         Assert.assertNotNull(doctorSummaries);
         Assert.assertEquals(2, doctorSummaries.size());
     }

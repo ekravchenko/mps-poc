@@ -3,7 +3,9 @@ package org.testingzone.client.service;
 import org.fusesource.restygwt.client.MethodCallback;
 import org.fusesource.restygwt.client.RestService;
 import org.testingzone.service.doctor.DoctorServicePath;
+import org.testingzone.vo.base.SortOrder;
 import org.testingzone.vo.base.SummaryPageInfo;
+import org.testingzone.vo.doctor.DoctorSortProperty;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
 
 import javax.ws.rs.GET;
@@ -25,8 +27,8 @@ public interface DoctorService extends RestService {
             @QueryParam("itemsPerPage")
             int itemsPerPage,
             @QueryParam("sort")
-            String sort,
+            DoctorSortProperty sort,
             @QueryParam("order")
-            String order,
+            SortOrder order,
             MethodCallback<SummaryPageInfo<DoctorSummaryInfo>> callback);
 }
