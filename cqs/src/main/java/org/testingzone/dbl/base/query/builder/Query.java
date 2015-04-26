@@ -4,36 +4,43 @@ import com.mysema.query.BooleanBuilder;
 import com.mysema.query.types.Predicate;
 import org.testingzone.dbl.base.query.builder.join.JoinRequest;
 
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 public final class Query {
 
-    public static final Query EMPTY = new Query(new BooleanBuilder(), new HashSet<JoinRequest>());
+    public static final Query EMPTY = new Query();
 
     private final BooleanBuilder booleanBuilder;
 
-    private final Set<JoinRequest> joinRequests;
+    private final List<JoinRequest> joinRequests;
 
-    private Query(BooleanBuilder booleanBuilder, Set<JoinRequest> joinRequests) {
+    private Query() {
+        this(new BooleanBuilder(), new LinkedList<JoinRequest>());
+    }
+
+    private Query(BooleanBuilder booleanBuilder, List<JoinRequest> joinRequests) {
         this.booleanBuilder = booleanBuilder;
         this.joinRequests = joinRequests;
     }
 
     public Query and(QueryItem queryItem) {
         BooleanBuilder where = andPredicate(queryItem.getPredicate());
-        Set<JoinRequest> joins = addJoins(queryItem.getJoins());
+        List<JoinRequest> joins = addJoins(queryItem.getJoins());
         return new Query(where, joins);
     }
 
-    public Query or(QueryItem queryItem) {
-        BooleanBuilder where = orPredicate(queryItem.getPredicate());
-        Set<JoinRequest> joins = addJoins(queryItem.getJoins());
-        return new Query(where, joins);
-    }
+//    public Query or(QueryItem queryItem) {
+//        BooleanBuilder where = orPredicate(queryItem.getPredicate());
+//        List<JoinRequest> joins = addJoins(queryItem.getJoins());
+//        return new Query(where, joins);
+//    }
 
-    public Query join(JoinRequest joinRequest) {
+    Query join(List<JoinRequest> joinRequests) {
         BooleanBuilder where = new BooleanBuilder(this.booleanBuilder);
-        Set<JoinRequest> joins = addJoin(joinRequest);
+        List<JoinRequest> joins = addJoins(joinRequests);
         return new Query(where, joins);
     }
 
@@ -42,18 +49,12 @@ public final class Query {
     }
 
     Set<JoinRequest> getJoins() {
-        return new HashSet<>(joinRequests);
+        return new LinkedHashSet<>(joinRequests);
     }
 
-    private Set<JoinRequest> addJoins(List<JoinRequest> newJoinRequests) {
-        Set<JoinRequest> joinRequests = new HashSet<>(this.joinRequests);
+    private List<JoinRequest> addJoins(List<JoinRequest> newJoinRequests) {
+        List<JoinRequest> joinRequests = new LinkedList<>(this.joinRequests);
         joinRequests.addAll(newJoinRequests);
-        return joinRequests;
-    }
-
-    private Set<JoinRequest> addJoin(JoinRequest newJoinRequest) {
-        Set<JoinRequest> joinRequests = new HashSet<>(this.joinRequests);
-        joinRequests.add(newJoinRequest);
         return joinRequests;
     }
 
@@ -63,9 +64,9 @@ public final class Query {
         return booleanBuilder;
     }
 
-    private BooleanBuilder orPredicate(Predicate predicate) {
-        BooleanBuilder booleanBuilder = new BooleanBuilder(this.booleanBuilder);
-        booleanBuilder.or(predicate);
-        return booleanBuilder;
-    }
+//    private BooleanBuilder orPredicate(Predicate predicate) {
+//        BooleanBuilder booleanBuilder = new BooleanBuilder(this.booleanBuilder);
+//        booleanBuilder.or(predicate);
+//        return booleanBuilder;
+//    }
 }

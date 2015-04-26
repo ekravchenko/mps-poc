@@ -26,7 +26,7 @@ public class RestDoctorService {
         this.doctorService = doctorService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTORSPAGE)
+    @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTORS_PAGE)
     public List<DoctorSummaryInfo> getDoctorSummaries(@RequestParam(value = "businessPK") String businessPK,
                                                       @RequestParam(value = "text", required = false) String text,
                                                       @RequestParam(value = "pageIndex") int pageIndex,
@@ -36,7 +36,7 @@ public class RestDoctorService {
         return doctorService.getDoctorSummaries(filter, pageFilter);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTORSPAGEINITIAL)
+    @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTORS_PAGE_INITIAL)
     public SummaryPageInfo<DoctorSummaryInfo> getPageInfo(@RequestParam(value = "businessPK") String businessPK,
                                                           @RequestParam(value = "text", required = false) String text,
                                                           @RequestParam(value = "pageIndex") int pageIndex,

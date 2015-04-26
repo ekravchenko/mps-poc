@@ -12,17 +12,17 @@ import java.util.List;
  * Query main building block. Collection of QueryItems is what builds up every query. The nice thing about QueryItem is
  * that it holds both 'where clause' predicate and join instruction
  */
-public class QueryItem {
+public final class QueryItem {
 
     /**
      * QueryDSL predicate that should be used in 'where' clause
      */
-    private Predicate predicate;
+    private final Predicate predicate;
 
     /**
      * Join instructions
      */
-    private List<JoinRequest> joins;
+    private final List<JoinRequest> joins;
 
     /**
      * The QueryItem with empty predicate (NullObject pattern)
@@ -47,11 +47,7 @@ public class QueryItem {
      */
     public QueryItem(Predicate predicate, JoinRequest... joins) {
         this.predicate = predicate;
-        this.joins = new ArrayList<>();
-
-        if (joins != null) {
-            this.joins = Arrays.asList(joins);
-        }
+        this.joins = (joins != null) ? Arrays.asList(joins) : new ArrayList<JoinRequest>();
     }
 
     /**

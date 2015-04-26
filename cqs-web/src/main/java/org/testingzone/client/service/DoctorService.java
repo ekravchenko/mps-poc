@@ -9,11 +9,11 @@ import org.testingzone.vo.doctor.DoctorSummaryInfo;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
-import java.util.List;
 
 @Path(DoctorServicePath.DOCTORS)
 public interface DoctorService extends RestService {
 
+    @Path(DoctorServicePath.DOCTORS_PAGE_INITIAL)
     @GET
     void getDoctorSummaryPageInfo(
             @QueryParam("businessPK")

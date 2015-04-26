@@ -20,16 +20,16 @@ public class SummaryPageInfo<T> {
     }
 
     @JsonCreator
-    public SummaryPageInfo(@JsonProperty("totalCount") long totalCount, @JsonProperty("items") List<T> items) {
+    public SummaryPageInfo(@JsonProperty("totalCount") long totalCount, @JsonProperty("list") List<T> items) {
         this.totalCount = totalCount;
         this.items = items;
     }
 
-    public long getTotalCount() {
-        return totalCount;
-    }
-
     public List<T> getItems() {
         return items;
+    }
+
+    public long getTotalCount() {
+        return totalCount;
     }
 }
