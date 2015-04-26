@@ -1,6 +1,7 @@
 package org.testingzone.dbl.base.query.builder;
 
 import org.testingzone.dbl.base.query.builder.join.JoinRequest;
+import org.testingzone.dbl.base.query.builder.sort.SortExpression;
 import org.testingzone.vo.base.PageFilter;
 
 import java.util.ArrayList;
@@ -12,28 +13,35 @@ public final class QueryParams<Filter> {
 
     private final PageFilter pageFilter;
 
+    private final SortExpression sortExpression;
+
     private final List<JoinRequest> joinRequests;
 
     public QueryParams() {
-        this(null, PageFilter.NONE, new ArrayList<JoinRequest>());
+        this(null, new ArrayList<JoinRequest>(), PageFilter.NONE, SortExpression.NONE);
     }
 
-    public QueryParams(Filter filter, PageFilter pageFilter, List<JoinRequest> joinRequests) {
+    public QueryParams(Filter filter, List<JoinRequest> joinRequests, PageFilter pageFilter, SortExpression sortExpression) {
         this.filter = filter;
         this.pageFilter = pageFilter;
         this.joinRequests = joinRequests;
+        this.sortExpression = sortExpression;
     }
 
     public QueryParams<Filter> filter(Filter filter) {
-        return new QueryParams<>(filter, this.pageFilter, this.joinRequests);
+        return new QueryParams<>(filter, this.joinRequests, this.pageFilter, this.sortExpression);
     }
 
     public QueryParams<Filter> page(PageFilter pageFilter) {
-        return new QueryParams<>(this.filter, pageFilter, this.joinRequests);
+        return new QueryParams<>(this.filter, this.joinRequests, pageFilter, this.sortExpression);
     }
 
     public QueryParams<Filter> joins(List<JoinRequest> joins) {
-        return new QueryParams<>(this.filter, this.pageFilter, joins);
+        return new QueryParams<>(this.filter, joins, this.pageFilter, this.sortExpression);
+    }
+
+    public QueryParams<Filter> sort(SortExpression sortExpression) {
+        return new QueryParams<>(this.filter, this.joinRequests, this.pageFilter, sortExpression);
     }
 
     public Filter getFilter() {
@@ -46,5 +54,9 @@ public final class QueryParams<Filter> {
 
     public List<JoinRequest> getJoinRequests() {
         return joinRequests;
+    }
+
+    public SortExpression getSortExpression() {
+        return sortExpression;
     }
 }

@@ -23,7 +23,7 @@ public class DoctorListPresenter extends LazyPresenter<DoctorListPresenter.Docto
         super.createPresenter();
 
         DoctorService doctorService = GWT.create(DoctorService.class);
-        doctorService.getDoctorSummaryPageInfo("3FBA226B3FF370D6", null, 0, 20, new MethodCallback<SummaryPageInfo<DoctorSummaryInfo>>() {
+        doctorService.getDoctorSummaryPageInfo("3FBA226B3FF370D6", null, 0, 20, "name", "ASC", new MethodCallback<SummaryPageInfo<DoctorSummaryInfo>>() {
             @Override
             public void onFailure(Method method, Throwable throwable) {
                 System.out.println("Failed!");

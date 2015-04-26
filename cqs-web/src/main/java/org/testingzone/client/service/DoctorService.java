@@ -24,5 +24,9 @@ public interface DoctorService extends RestService {
             int pageIndex,
             @QueryParam("itemsPerPage")
             int itemsPerPage,
+            @QueryParam("sort")
+            String sort,
+            @QueryParam("order")
+            String order,
             MethodCallback<SummaryPageInfo<DoctorSummaryInfo>> callback);
 }

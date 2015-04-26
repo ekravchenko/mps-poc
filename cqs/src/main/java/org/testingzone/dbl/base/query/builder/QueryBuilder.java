@@ -1,8 +1,12 @@
 package org.testingzone.dbl.base.query.builder;
 
 import com.mysema.query.jpa.impl.JPAQuery;
+import com.mysema.query.types.Order;
+import com.mysema.query.types.OrderSpecifier;
 import org.testingzone.dbl.base.query.builder.join.JoinRequest;
+import org.testingzone.dbl.base.query.builder.sort.SortExpression;
 import org.testingzone.vo.base.PageFilter;
+import org.testingzone.vo.base.SortOrder;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
@@ -47,6 +51,11 @@ public final class QueryBuilder<Filter> {
         return joins(joinsList);
     }
 
+    public QueryBuilder<Filter> sort(SortExpression sortExpression) {
+        QueryParams<Filter> queryParams = this.queryParams.sort(sortExpression);
+        return new QueryBuilder<>(entityManager, queryProvider, queryParams);
+    }
+
     public JPAQuery build() {
         JPAQuery jpaQuery = new JPAQuery(entityManager);
         jpaQuery = jpaQuery.from(queryProvider.getQueryRoot());
@@ -62,6 +71,9 @@ public final class QueryBuilder<Filter> {
 
         if (queryParams.getPageFilter() != null) {
             jpaQuery = applyPagination(jpaQuery, queryParams.getPageFilter());
+        }
+        if(queryParams.getSortExpression() != null) {
+            jpaQuery = applySorting(jpaQuery, queryParams.getSortExpression());
         }
         return jpaQuery;
     }
@@ -82,6 +94,17 @@ public final class QueryBuilder<Filter> {
         if (pageFilter.getItemsPerPage() > 0) {
             jpaQuery = jpaQuery.offset(pageFilter.getPageIndex() * pageFilter.getItemsPerPage());
             jpaQuery = jpaQuery.limit(pageFilter.getItemsPerPage());
+        }
+        return jpaQuery;
+    }
+
+    @SuppressWarnings("unchecked")
+    private JPAQuery applySorting(JPAQuery jpaQuery, SortExpression sortExpression) {
+        if(sortExpression.getExpression() != null) {
+            SortOrder sortOrder = sortExpression.getSortOrder();
+            Order order = SortOrder.DESC == sortOrder ? Order.DESC : Order.ASC;
+            OrderSpecifier orderSpecifier = new OrderSpecifier(order, sortExpression.getExpression());
+            jpaQuery.orderBy(orderSpecifier);
         }
         return jpaQuery;
     }

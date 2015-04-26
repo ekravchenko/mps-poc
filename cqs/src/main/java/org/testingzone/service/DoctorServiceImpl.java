@@ -6,6 +6,7 @@ import org.testingzone.dbl.doctor.query.DoctorSummaryQuery;
 import org.testingzone.service.doctor.DoctorService;
 import org.testingzone.vo.base.PageFilter;
 import org.testingzone.vo.base.SimpleFilter;
+import org.testingzone.vo.base.SortFilter;
 import org.testingzone.vo.base.SummaryPageInfo;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
 
@@ -19,11 +20,12 @@ public class DoctorServiceImpl implements DoctorService {
     private DoctorSummaryQuery doctorSummaryQuery;
 
     @Override
-    public SummaryPageInfo<DoctorSummaryInfo> getDoctorSummaryPageInfo(SimpleFilter filter, PageFilter pageFilter) {
-        return doctorSummaryQuery.getSummaryPageInfo(filter, pageFilter);
+    public SummaryPageInfo<DoctorSummaryInfo> getDoctorSummaryPageInfo(SimpleFilter filter, PageFilter pageFilter, SortFilter sortFilter) {
+        return doctorSummaryQuery.getSummaryPageInfo(filter, pageFilter, sortFilter);
     }
 
-    public List<DoctorSummaryInfo> getDoctorSummaries(SimpleFilter filter, PageFilter pageFilter) {
-        return doctorSummaryQuery.getSummaryInfoList(filter, pageFilter);
+    @Override
+    public List<DoctorSummaryInfo> getDoctorSummaries(SimpleFilter filter, PageFilter pageFilter, SortFilter sortFilter) {
+        return doctorSummaryQuery.getSummaryInfoList(filter, pageFilter, sortFilter);
     }
 }
