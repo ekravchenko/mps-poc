@@ -1,9 +1,9 @@
 package org.testingzone.dbl.doctor.query;
 
+import com.google.common.base.Strings;
 import com.mysema.query.types.EntityPath;
 import com.mysema.query.types.Predicate;
 import com.mysema.query.types.expr.BooleanExpression;
-import org.apache.commons.lang3.StringUtils;
 import org.testingzone.dbl.base.query.builder.Query;
 import org.testingzone.dbl.base.query.builder.QueryItem;
 import org.testingzone.dbl.base.query.builder.QueryProvider;
@@ -33,7 +33,7 @@ public class DoctorSummaryQueryItems implements QueryProvider<SimpleFilter> {
     }
 
     private QueryItem getSearchTextQueryItem(QDoctor doctor, String searchText) {
-        if (StringUtils.isNotBlank(searchText)) {
+        if (!Strings.isNullOrEmpty(searchText)) {
             Predicate predicate = doctor.practiceNumber.containsIgnoreCase(searchText)
                     .or(QBusiness.business.businessName.containsIgnoreCase(searchText)
                             .or(doctor.doctorName.containsIgnoreCase(searchText)));
@@ -44,7 +44,7 @@ public class DoctorSummaryQueryItems implements QueryProvider<SimpleFilter> {
     }
 
     private QueryItem getBusinessQueryItem(QDoctor doctor, String businessPK) {
-        if (StringUtils.isNotBlank(businessPK)) {
+        if (!Strings.isNullOrEmpty(businessPK)) {
             QBusiness business = QBusiness.business;
             JoinRequest businessJoin = new LeftJoinRequest(doctor.business, business);
             BinaryKey businessKey = BinaryKey.valueOf(businessPK);
