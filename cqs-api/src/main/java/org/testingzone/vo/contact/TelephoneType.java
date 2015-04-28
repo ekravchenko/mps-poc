@@ -3,7 +3,7 @@ package org.testingzone.vo.contact;
 
 public enum TelephoneType {
 
-    HOME(1), FAX(2), OFFICE(3), MOBILE(4);
+    HOME(2), FAX(4), OFFICE(1), MOBILE(3);
 
     private int id;
 
