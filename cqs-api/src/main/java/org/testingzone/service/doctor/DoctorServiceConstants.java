@@ -1,8 +1,8 @@
 package org.testingzone.service.doctor;
 
-public final class DoctorServicePath {
+public final class DoctorServiceConstants {
 
-    private DoctorServicePath() {
+    private DoctorServiceConstants() {
     }
 
     public static final String DOCTORS = "/doctors";

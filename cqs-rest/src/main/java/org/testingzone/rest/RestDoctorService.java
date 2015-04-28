@@ -4,7 +4,7 @@ package org.testingzone.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.testingzone.service.doctor.DoctorService;
-import org.testingzone.service.doctor.DoctorServicePath;
+import org.testingzone.service.doctor.DoctorServiceConstants;
 import org.testingzone.vo.base.*;
 import org.testingzone.vo.doctor.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
@@ -12,7 +12,7 @@ import org.testingzone.vo.doctor.DoctorSummaryInfo;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = DoctorServicePath.DOCTORS)
+@RequestMapping(value = DoctorServiceConstants.DOCTORS)
 public class RestDoctorService {
 
     private DoctorService doctorService;
@@ -22,7 +22,7 @@ public class RestDoctorService {
         this.doctorService = doctorService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTORS_PAGE)
+    @RequestMapping(method = RequestMethod.GET, value = DoctorServiceConstants.DOCTORS_PAGE)
     public List<DoctorSummaryInfo> getDoctorSummaries(@RequestParam(value = "businessPK") String businessPK,
                                                       @RequestParam(value = "text", required = false) String text,
                                                       @RequestParam(value = "pageIndex") int pageIndex,
@@ -35,7 +35,7 @@ public class RestDoctorService {
         return doctorService.getDoctorSummaries(filter, pageFilter, sortFilter);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTORS_PAGE_INITIAL)
+    @RequestMapping(method = RequestMethod.GET, value = DoctorServiceConstants.DOCTORS_PAGE_INITIAL)
     public SummaryPageInfo<DoctorSummaryInfo> getPageInfo(@RequestParam(value = "businessPK") String businessPK,
                                                           @RequestParam(value = "text", required = false) String text,
                                                           @RequestParam(value = "pageIndex") int pageIndex,
@@ -48,8 +48,8 @@ public class RestDoctorService {
         return doctorService.getDoctorSummaryPageInfo(filter, pageFilter, sortFilter);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTOR_DETAILS)
-    public DoctorDetailsInfo getDoctorDetails(@PathVariable(DoctorServicePath.DOCTOR_ID) String doctorPK) {
+    @RequestMapping(method = RequestMethod.GET, value = DoctorServiceConstants.DOCTOR_DETAILS)
+    public DoctorDetailsInfo getDoctorDetails(@PathVariable(DoctorServiceConstants.DOCTOR_ID) String doctorPK) {
         return doctorService.getDoctorDetails(doctorPK);
     }
 }

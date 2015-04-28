@@ -2,7 +2,7 @@ package org.testingzone.client.service;
 
 import org.fusesource.restygwt.client.MethodCallback;
 import org.fusesource.restygwt.client.RestService;
-import org.testingzone.service.doctor.DoctorServicePath;
+import org.testingzone.service.doctor.DoctorServiceConstants;
 import org.testingzone.vo.base.SortOrder;
 import org.testingzone.vo.base.SummaryPageInfo;
 import org.testingzone.vo.doctor.DoctorDetailsInfo;
@@ -14,10 +14,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 
-@Path(DoctorServicePath.DOCTORS)
+@Path(DoctorServiceConstants.DOCTORS)
 public interface DoctorService extends RestService {
 
-    @Path(DoctorServicePath.DOCTORS_PAGE_INITIAL)
+    @Path(DoctorServiceConstants.DOCTORS_PAGE_INITIAL)
     @GET
     void getDoctorSummaryPageInfo(
             @QueryParam("businessPK")
