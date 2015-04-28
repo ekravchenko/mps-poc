@@ -1,5 +1,6 @@
 package org.testingzone.vo.contact;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public final class AddressInfo {
@@ -17,6 +18,7 @@ public final class AddressInfo {
     @JsonProperty
     private final String code;
 
+    @JsonCreator
     public AddressInfo(@JsonProperty("addressPK") String addressPK,
                        @JsonProperty("line1") String line1,
                        @JsonProperty("line2") String line2,

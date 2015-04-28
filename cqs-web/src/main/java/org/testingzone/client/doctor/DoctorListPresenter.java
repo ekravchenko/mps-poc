@@ -9,6 +9,7 @@ import org.fusesource.restygwt.client.MethodCallback;
 import org.testingzone.client.service.DoctorService;
 import org.testingzone.vo.base.SortOrder;
 import org.testingzone.vo.base.SummaryPageInfo;
+import org.testingzone.vo.doctor.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.DoctorSortProperty;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
 
@@ -34,6 +35,18 @@ public class DoctorListPresenter extends LazyPresenter<DoctorListPresenter.Docto
 
             @Override
             public void onSuccess(Method method, SummaryPageInfo<DoctorSummaryInfo> pageInfo) {
+                System.out.println("Success!");
+            }
+        });
+
+        doctorService.getDoctorDetails("0000000e9e2ad93d00000000000000cf", new MethodCallback<DoctorDetailsInfo>() {
+            @Override
+            public void onFailure(Method method, Throwable throwable) {
+                System.out.println("Failed!");
+            }
+
+            @Override
+            public void onSuccess(Method method, DoctorDetailsInfo doctorDetailsInfo) {
                 System.out.println("Success!");
             }
         });
