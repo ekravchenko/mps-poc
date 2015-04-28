@@ -1,4 +1,6 @@
-package org.testingzone.vo.contact;
+package org.testingzone.dbl.contact.query.helpers;
+
+import org.testingzone.vo.contact.TelephoneInfo;
 
 public final class AllTelephonesInfo {
 

@@ -1,12 +1,15 @@
-package org.testingzone.dbl.contact;
+package org.testingzone.dbl.contact.query;
 
+import com.google.common.base.Preconditions;
 import com.mysema.query.jpa.impl.JPAQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.testingzone.dbl.contact.query.helpers.AllTelephonesInfo;
+import org.testingzone.dbl.contact.query.helpers.AllTelephonesInfoCreator;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.contact.QContactTelephone;
-import org.testingzone.dbo.contact.query.*;
-import org.testingzone.vo.contact.AllTelephonesInfo;
+import org.testingzone.dbo.contact.query.QTelephoneInfoWrapper;
+import org.testingzone.dbo.contact.query.TelephoneInfoWrapper;
 import org.testingzone.vo.contact.TelephoneInfo;
 import org.testingzone.vo.contact.TelephoneType;
 
@@ -27,16 +30,16 @@ public class TelephoneQuery {
         if (contactPK == null) {
             return TelephoneInfo.EMPTY;
         }
-
+        Preconditions.checkNotNull(telephoneType, "TelephoneType shouldn't be null");
         QContactTelephone telephone = QContactTelephone.contactTelephone;
         JPAQuery jpaQuery = new JPAQuery(entityManager);
         List<TelephoneInfoWrapper> telephones = jpaQuery.from(telephone)
                 .where(telephone.contact.contactPk.eq(contactPK)
                         .and(telephone.contactTelephoneType.eq(telephoneType.getId())))
-                .list(new QTelephoneInfoWrapper(telephone.contactTelephonePk, telephone.number));
+                .list(new QTelephoneInfoWrapper(telephone.contactTelephonePk, telephone.number, telephone.contactTelephoneType));
 
         if (telephones != null && !telephones.isEmpty()) {
-            return telephones.iterator().next().get();
+            return telephones.iterator().next().getTelephoneInfo();
         }
         return TelephoneInfo.EMPTY;
     }
@@ -47,10 +50,10 @@ public class TelephoneQuery {
         }
         QContactTelephone telephone = QContactTelephone.contactTelephone;
         JPAQuery jpaQuery = new JPAQuery(entityManager);
-        List<ContactTelephoneInfo> contactTelephoneInfoList = jpaQuery.from(telephone)
+        List<TelephoneInfoWrapper> contactTelephoneInfoList = jpaQuery.from(telephone)
                 .where(telephone.contact.contactPk.eq(contactPK))
-                .list(new QContactTelephoneInfo(telephone.contactTelephonePk, telephone.number, telephone.contactTelephoneType));
-        AllTelephoneInfoWrapper allTelephoneWrapper = new AllTelephoneInfoWrapper(contactTelephoneInfoList);
+                .list(new QTelephoneInfoWrapper(telephone.contactTelephonePk, telephone.number, telephone.contactTelephoneType));
+        AllTelephonesInfoCreator allTelephoneWrapper = new AllTelephonesInfoCreator(contactTelephoneInfoList);
         return allTelephoneWrapper.getAllTelephonesInfo();
     }
 }

@@ -1,21 +1,22 @@
 package org.testingzone.dbo.contact.query;
 
 import com.mysema.query.annotations.QueryProjection;
+import lombok.Getter;
 import org.testingzone.dbo.base.AbstractInfoWrapper;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.vo.contact.TelephoneInfo;
+import org.testingzone.vo.contact.TelephoneType;
 
-public class TelephoneInfoWrapper extends AbstractInfoWrapper<TelephoneInfo> {
+@Getter
+public class TelephoneInfoWrapper {
 
     private TelephoneInfo telephoneInfo;
 
-    @QueryProjection
-    public TelephoneInfoWrapper(BinaryKey telephoneId, String number) {
-        this.telephoneInfo = new TelephoneInfo(telephoneId.toString(), number);
-    }
+    private TelephoneType telephoneType;
 
-    @Override
-    public TelephoneInfo get() {
-        return telephoneInfo;
+    @QueryProjection
+    public TelephoneInfoWrapper(BinaryKey telephoneId, String number, Integer type) {
+        this.telephoneInfo = new TelephoneInfo(telephoneId.toString(), number);
+        this.telephoneType = TelephoneType.valueOf(type);
     }
 }

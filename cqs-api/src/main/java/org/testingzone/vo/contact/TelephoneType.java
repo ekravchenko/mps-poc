@@ -3,28 +3,21 @@ package org.testingzone.vo.contact;
 
 public enum TelephoneType {
 
-    HOME(1, "Home"), FAX(2, "Fax"), OFFICE(3, "Office"), MOBILE(4, "Mobile");
+    HOME(1), FAX(2), OFFICE(3), MOBILE(4);
 
     private int id;
 
-    private String desc;
-
-    TelephoneType(int id, String desc) {
+    TelephoneType(int id) {
         this.id = id;
-        this.desc = desc;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
     public static TelephoneType valueOf(Integer id) {
-        for(TelephoneType telephoneType : values()) {
-            if(Integer.valueOf(telephoneType.id).equals(id)) {
+        for (TelephoneType telephoneType : values()) {
+            if (Integer.valueOf(telephoneType.id).equals(id)) {
                 return telephoneType;
             }
         }

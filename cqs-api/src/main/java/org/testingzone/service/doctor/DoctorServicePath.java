@@ -10,4 +10,6 @@ public final class DoctorServicePath {
     public static final String DOCTORS_PAGE = "/page";
 
     public static final String DOCTORS_PAGE_INITIAL = "/page/initial";
+
+    public static final String DOCTOR_DETAILS = "/{id}";
 }

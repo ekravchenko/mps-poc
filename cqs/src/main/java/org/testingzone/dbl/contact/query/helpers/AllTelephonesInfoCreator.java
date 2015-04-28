@@ -1,31 +1,31 @@
-package org.testingzone.dbo.contact.query;
+package org.testingzone.dbl.contact.query.helpers;
 
-import org.testingzone.vo.contact.AllTelephonesInfo;
+import org.testingzone.dbo.contact.query.TelephoneInfoWrapper;
 import org.testingzone.vo.contact.TelephoneInfo;
 import org.testingzone.vo.contact.TelephoneType;
 
 import java.util.List;
 
-public final class AllTelephoneInfoWrapper {
+public final class AllTelephonesInfoCreator {
 
     private final AllTelephonesInfo allTelephonesInfo;
 
-    public AllTelephoneInfoWrapper(List<ContactTelephoneInfo> telephones) {
+    public AllTelephonesInfoCreator(List<TelephoneInfoWrapper> telephones) {
         TelephoneInfo cell = TelephoneInfo.EMPTY;
         TelephoneInfo fax = TelephoneInfo.EMPTY;
         TelephoneInfo home = TelephoneInfo.EMPTY;
         TelephoneInfo office = TelephoneInfo.EMPTY;
 
-        for(ContactTelephoneInfo contactTelephoneInfo : telephones) {
-            TelephoneType type = contactTelephoneInfo.getType();
+        for (TelephoneInfoWrapper telephoneInfoWrapper : telephones) {
+            TelephoneType type = telephoneInfoWrapper.getTelephoneType();
             if (type == TelephoneType.FAX) {
-                fax = contactTelephoneInfo.getTelephoneInfo();
+                fax = telephoneInfoWrapper.getTelephoneInfo();
             } else if (type == TelephoneType.HOME) {
-                home = contactTelephoneInfo.getTelephoneInfo();
+                home = telephoneInfoWrapper.getTelephoneInfo();
             } else if (type == TelephoneType.MOBILE) {
-                cell = contactTelephoneInfo.getTelephoneInfo();
+                cell = telephoneInfoWrapper.getTelephoneInfo();
             } else if (type == TelephoneType.OFFICE) {
-                office = contactTelephoneInfo.getTelephoneInfo();
+                office = telephoneInfoWrapper.getTelephoneInfo();
             }
         }
 

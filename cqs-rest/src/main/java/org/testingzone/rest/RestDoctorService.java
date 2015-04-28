@@ -2,13 +2,11 @@ package org.testingzone.rest;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.testingzone.service.doctor.DoctorService;
 import org.testingzone.service.doctor.DoctorServicePath;
 import org.testingzone.vo.base.*;
+import org.testingzone.vo.doctor.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.DoctorSummaryInfo;
 
 import java.util.List;
@@ -48,5 +46,10 @@ public class RestDoctorService {
         PageFilter pageFilter = new PageFilter(pageIndex, itemsPerPage);
         SortFilter sortFilter = new SortFilter(sort, SortOrder.from(order));
         return doctorService.getDoctorSummaryPageInfo(filter, pageFilter, sortFilter);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTOR_DETAILS)
+    public DoctorDetailsInfo getDoctorDetails(@PathVariable String doctorPK) {
+        return doctorService.getDoctorDetails(doctorPK);
     }
 }

@@ -24,6 +24,9 @@ public class BinaryKey implements Serializable, Comparable<BinaryKey> {
     }
 
     public static BinaryKey valueOf(String hex) {
+        if (hex == null) {
+            return null;
+        }
         byte[] b = HexUtils.decodeHex(hex);
         return new BinaryKey(b);
     }

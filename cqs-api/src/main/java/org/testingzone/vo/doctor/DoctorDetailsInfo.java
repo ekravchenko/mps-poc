@@ -1,17 +1,39 @@
 package org.testingzone.vo.doctor;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.testingzone.vo.contact.ContactInfo;
+import org.testingzone.vo.contact.TelephoneInfo;
 
 import java.util.List;
 
-/**
- * Created by helen.kravchenko on 25/04/2015.
- */
 public class DoctorDetailsInfo {
 
+    @JsonProperty
     private DoctorInfo doctorInfo;
-
+    @JsonProperty
     private ContactInfo contactInfo;
-
+    @JsonProperty
     private List<DoctorNetworkInfo> doctorNetworkInfos;
+
+    @JsonCreator
+    public DoctorDetailsInfo(@JsonProperty("doctorInfo") DoctorInfo doctorInfo,
+                             @JsonProperty("contactInfo") ContactInfo contactInfo,
+                             @JsonProperty("doctorNetworkInfos") List<DoctorNetworkInfo> doctorNetworkInfos) {
+        this.doctorInfo = doctorInfo;
+        this.contactInfo = contactInfo;
+        this.doctorNetworkInfos = doctorNetworkInfos;
+    }
+
+    public DoctorInfo getDoctorInfo() {
+        return doctorInfo;
+    }
+
+    public ContactInfo getContactInfo() {
+        return contactInfo;
+    }
+
+    public List<DoctorNetworkInfo> getDoctorNetworkInfos() {
+        return doctorNetworkInfos;
+    }
 }
