@@ -34,8 +34,8 @@ public interface DoctorService extends RestService {
             SortOrder order,
             MethodCallback<SummaryPageInfo<DoctorSummaryInfo>> callback);
 
-    @Path(DoctorServicePath.DOCTOR_DETAILS)
+    @Path(DoctorServiceConstants.DOCTOR_DETAILS)
     @GET
-    void getDoctorDetails(@PathParam(DoctorServicePath.DOCTOR_ID) String id,
+    void getDoctorDetails(@PathParam(DoctorServiceConstants.DOCTOR_ID) String id,
                           MethodCallback<DoctorDetailsInfo> callback);
 }
