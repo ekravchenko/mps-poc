@@ -49,7 +49,7 @@ public class RestDoctorService {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = DoctorServicePath.DOCTOR_DETAILS)
-    public DoctorDetailsInfo getDoctorDetails(@PathVariable String doctorPK) {
+    public DoctorDetailsInfo getDoctorDetails(@PathVariable(DoctorServicePath.DOCTOR_ID) String doctorPK) {
         return doctorService.getDoctorDetails(doctorPK);
     }
 }
