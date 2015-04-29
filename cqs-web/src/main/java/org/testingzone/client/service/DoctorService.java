@@ -5,9 +5,9 @@ import org.fusesource.restygwt.client.RestService;
 import org.testingzone.service.doctor.DoctorServiceConstants;
 import org.testingzone.vo.base.SortOrder;
 import org.testingzone.vo.base.SummaryPageInfo;
-import org.testingzone.vo.doctor.DoctorDetailsInfo;
+import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.DoctorSortProperty;
-import org.testingzone.vo.doctor.DoctorSummaryInfo;
+import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -3,7 +3,7 @@ package org.testingzone.dbo.doctor.query;
 import com.mysema.query.annotations.QueryProjection;
 import org.testingzone.dbo.base.AbstractInfoWrapper;
 import org.testingzone.dbo.base.BinaryKey;
-import org.testingzone.vo.doctor.DoctorInfo;
+import org.testingzone.vo.doctor.query.DoctorInfo;
 import org.testingzone.vo.person.Title;
 
 public class DoctorInfoWrapper extends AbstractInfoWrapper<DoctorInfo> {

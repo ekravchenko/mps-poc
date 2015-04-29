@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import org.testingzone.service.doctor.DoctorService;
 import org.testingzone.service.doctor.DoctorServiceConstants;
 import org.testingzone.vo.base.*;
-import org.testingzone.vo.doctor.DoctorDetailsInfo;
-import org.testingzone.vo.doctor.DoctorSummaryInfo;
+import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
+import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 
 import java.util.List;
 

@@ -10,8 +10,8 @@ import org.testingzone.vo.base.PageFilter;
 import org.testingzone.vo.base.SimpleFilter;
 import org.testingzone.vo.base.SortFilter;
 import org.testingzone.vo.base.SummaryPageInfo;
-import org.testingzone.vo.doctor.DoctorDetailsInfo;
-import org.testingzone.vo.doctor.DoctorSummaryInfo;
+import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
+import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 
 import java.util.List;
 

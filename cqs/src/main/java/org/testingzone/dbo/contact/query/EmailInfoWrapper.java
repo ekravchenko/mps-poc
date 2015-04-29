@@ -2,7 +2,7 @@ package org.testingzone.dbo.contact.query;
 
 import com.mysema.query.annotations.QueryProjection;
 import org.testingzone.dbo.base.BinaryKey;
-import org.testingzone.vo.contact.EmailInfo;
+import org.testingzone.vo.contact.query.EmailInfo;
 
 public class EmailInfoWrapper {
 

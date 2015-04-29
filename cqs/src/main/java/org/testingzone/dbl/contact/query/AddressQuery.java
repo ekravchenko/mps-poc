@@ -10,8 +10,8 @@ import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.contact.QContactAddress;
 import org.testingzone.dbo.contact.query.AddressInfoWrapper;
 import org.testingzone.dbo.contact.query.QAddressInfoWrapper;
-import org.testingzone.vo.contact.AddressInfo;
-import org.testingzone.vo.contact.AddressType;
+import org.testingzone.vo.contact.query.AddressInfo;
+import org.testingzone.vo.contact.query.AddressType;
 
 import javax.persistence.EntityManager;
 import java.util.List;

@@ -11,7 +11,7 @@ import org.testingzone.dbo.contact.QContact;
 import org.testingzone.dbo.doctor.QDoctor;
 import org.testingzone.dbo.doctor.query.DoctorInfoWrapper;
 import org.testingzone.dbo.doctor.query.QDoctorInfoWrapper;
-import org.testingzone.vo.doctor.DoctorInfo;
+import org.testingzone.vo.doctor.query.DoctorInfo;
 
 import javax.persistence.EntityManager;
 

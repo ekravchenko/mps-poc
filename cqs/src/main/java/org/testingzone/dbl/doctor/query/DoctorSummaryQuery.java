@@ -16,7 +16,7 @@ import org.testingzone.dbo.doctor.query.QDoctorSummaryInfoWrapper;
 import org.testingzone.vo.base.PageFilter;
 import org.testingzone.vo.base.SimpleFilter;
 import org.testingzone.vo.base.SortFilter;
-import org.testingzone.vo.doctor.DoctorSummaryInfo;
+import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 
 import javax.persistence.EntityManager;
 import java.util.List;

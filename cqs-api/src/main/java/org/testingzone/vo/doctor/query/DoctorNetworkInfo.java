@@ -1,4 +1,4 @@
-package org.testingzone.vo.doctor;
+package org.testingzone.vo.doctor.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

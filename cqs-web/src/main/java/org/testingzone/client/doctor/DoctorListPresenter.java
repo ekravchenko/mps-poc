@@ -9,9 +9,9 @@ import org.fusesource.restygwt.client.MethodCallback;
 import org.testingzone.client.service.DoctorService;
 import org.testingzone.vo.base.SortOrder;
 import org.testingzone.vo.base.SummaryPageInfo;
-import org.testingzone.vo.doctor.DoctorDetailsInfo;
+import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.DoctorSortProperty;
-import org.testingzone.vo.doctor.DoctorSummaryInfo;
+import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 
 
 @Presenter(view = DoctorListView.class)

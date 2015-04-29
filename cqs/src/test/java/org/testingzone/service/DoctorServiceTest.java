@@ -11,7 +11,7 @@ import org.testingzone.config.MyConfig;
 import org.testingzone.service.doctor.DoctorService;
 import org.testingzone.vo.base.PageFilter;
 import org.testingzone.vo.base.SortFilter;
-import org.testingzone.vo.doctor.DoctorSummaryInfo;
+import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 import org.testingzone.vo.base.SimpleFilter;
 
 import java.util.List;

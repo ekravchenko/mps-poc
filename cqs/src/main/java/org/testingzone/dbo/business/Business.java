@@ -4,11 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
-import org.testingzone.dbo.contact.Contact;
-import org.testingzone.dbo.doctor.Doctor;
 import org.testingzone.dbo.base.AbstractSystemEntity;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.base.Inactivating;
+import org.testingzone.dbo.contact.Contact;
+import org.testingzone.dbo.doctor.Doctor;
 
 import javax.persistence.*;
 import java.util.HashSet;

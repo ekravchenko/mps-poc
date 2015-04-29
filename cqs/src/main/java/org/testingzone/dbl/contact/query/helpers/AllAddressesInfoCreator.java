@@ -1,8 +1,8 @@
 package org.testingzone.dbl.contact.query.helpers;
 
 import org.testingzone.dbo.contact.query.AddressInfoWrapper;
-import org.testingzone.vo.contact.AddressInfo;
-import org.testingzone.vo.contact.AddressType;
+import org.testingzone.vo.contact.query.AddressInfo;
+import org.testingzone.vo.contact.query.AddressType;
 
 import java.util.List;
 

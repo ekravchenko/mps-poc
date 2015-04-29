@@ -9,13 +9,12 @@ import org.testingzone.dbl.contact.query.helpers.AllTelephonesInfo;
 import org.testingzone.dbl.doctor.query.DoctorNetworkQuery;
 import org.testingzone.dbl.doctor.query.DoctorQuery;
 import org.testingzone.dbo.base.BinaryKey;
-import org.testingzone.dbo.doctor.DoctorNetwork;
-import org.testingzone.vo.contact.AddressInfo;
-import org.testingzone.vo.contact.ContactInfo;
-import org.testingzone.vo.contact.EmailInfo;
-import org.testingzone.vo.doctor.DoctorDetailsInfo;
-import org.testingzone.vo.doctor.DoctorInfo;
-import org.testingzone.vo.doctor.DoctorNetworkInfo;
+import org.testingzone.vo.contact.query.AddressInfo;
+import org.testingzone.vo.contact.query.ContactInfo;
+import org.testingzone.vo.contact.query.EmailInfo;
+import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
+import org.testingzone.vo.doctor.query.DoctorInfo;
+import org.testingzone.vo.doctor.query.DoctorNetworkInfo;
 
 import java.util.List;
 

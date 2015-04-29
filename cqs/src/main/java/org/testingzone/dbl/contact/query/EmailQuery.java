@@ -7,7 +7,7 @@ import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.contact.QContactEmail;
 import org.testingzone.dbo.contact.query.EmailInfoWrapper;
 import org.testingzone.dbo.contact.query.QEmailInfoWrapper;
-import org.testingzone.vo.contact.EmailInfo;
+import org.testingzone.vo.contact.query.EmailInfo;
 
 import javax.persistence.EntityManager;
 import java.util.List;

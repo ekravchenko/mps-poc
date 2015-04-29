@@ -1,7 +1,7 @@
 package org.testingzone.dbl.contact.query.helpers;
 
 import org.testingzone.dbo.contact.query.TelephoneInfoWrapper;
-import org.testingzone.vo.contact.TelephoneInfo;
+import org.testingzone.vo.contact.query.TelephoneInfo;
 import org.testingzone.vo.contact.TelephoneType;
 
 import java.util.List;

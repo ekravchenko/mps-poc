@@ -1,9 +1,8 @@
-package org.testingzone.vo.doctor;
+package org.testingzone.vo.doctor.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.testingzone.vo.contact.ContactInfo;
-import org.testingzone.vo.contact.TelephoneInfo;
+import org.testingzone.vo.contact.query.ContactInfo;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package org.testingzone.dbo.doctor.query;
 import com.mysema.query.annotations.QueryProjection;
 import org.testingzone.dbo.base.AbstractInfoWrapper;
 import org.testingzone.dbo.base.BinaryKey;
-import org.testingzone.vo.doctor.DoctorNetworkInfo;
+import org.testingzone.vo.doctor.query.DoctorNetworkInfo;
 
 import java.util.Date;
 

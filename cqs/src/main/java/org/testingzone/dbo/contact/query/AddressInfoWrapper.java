@@ -3,8 +3,8 @@ package org.testingzone.dbo.contact.query;
 import com.mysema.query.annotations.QueryProjection;
 import lombok.Getter;
 import org.testingzone.dbo.base.BinaryKey;
-import org.testingzone.vo.contact.AddressInfo;
-import org.testingzone.vo.contact.AddressType;
+import org.testingzone.vo.contact.query.AddressInfo;
+import org.testingzone.vo.contact.query.AddressType;
 
 @Getter
 public class AddressInfoWrapper {

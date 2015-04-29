@@ -10,7 +10,7 @@ import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.contact.QContactTelephone;
 import org.testingzone.dbo.contact.query.QTelephoneInfoWrapper;
 import org.testingzone.dbo.contact.query.TelephoneInfoWrapper;
-import org.testingzone.vo.contact.TelephoneInfo;
+import org.testingzone.vo.contact.query.TelephoneInfo;
 import org.testingzone.vo.contact.TelephoneType;
 
 import javax.persistence.EntityManager;

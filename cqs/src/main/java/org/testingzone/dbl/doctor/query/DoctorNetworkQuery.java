@@ -10,7 +10,7 @@ import org.testingzone.dbo.doctor.QDoctor;
 import org.testingzone.dbo.doctor.QDoctorNetwork;
 import org.testingzone.dbo.doctor.query.DoctorNetworkInfoWrapper;
 import org.testingzone.dbo.doctor.query.QDoctorNetworkInfoWrapper;
-import org.testingzone.vo.doctor.DoctorNetworkInfo;
+import org.testingzone.vo.doctor.query.DoctorNetworkInfo;
 
 import javax.persistence.EntityManager;
 import java.util.List;
