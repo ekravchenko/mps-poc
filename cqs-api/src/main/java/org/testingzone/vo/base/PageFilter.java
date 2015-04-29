@@ -8,7 +8,7 @@ public class PageFilter {
 
     private final int itemsPerPage;
 
-    public PageFilter(int pageIndex, int itemsPerPage) {
+    private PageFilter(int pageIndex, int itemsPerPage) {
         this.pageIndex = pageIndex;
         this.itemsPerPage = itemsPerPage;
     }
@@ -19,5 +19,12 @@ public class PageFilter {
 
     public int getItemsPerPage() {
         return itemsPerPage;
+    }
+
+    public static PageFilter create(Integer pageIndex, Integer itemsPerPage) {
+        if (pageIndex == null || itemsPerPage == null) {
+            return PageFilter.NONE;
+        }
+        return new PageFilter(pageIndex, itemsPerPage);
     }
 }

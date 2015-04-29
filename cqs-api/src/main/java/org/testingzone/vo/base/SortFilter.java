@@ -20,4 +20,11 @@ public final class SortFilter {
     public SortOrder getSortOrder() {
         return sortOrder;
     }
+
+    public static SortFilter create(String sortProperty, SortOrder sortOrder) {
+        if (sortProperty == null || sortOrder == null) {
+            return SortFilter.NONE;
+        }
+        return new SortFilter(sortProperty, sortOrder);
+    }
 }

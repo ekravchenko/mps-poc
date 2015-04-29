@@ -70,7 +70,7 @@ public final class QueryBuilder<Filter> {
         if (queryParams.getPageFilter() != null) {
             jpaQuery = applyPagination(jpaQuery, queryParams.getPageFilter());
         }
-        if(queryParams.getSortExpression() != null) {
+        if (queryParams.getSortExpression() != null) {
             jpaQuery = applySorting(jpaQuery, queryParams.getSortExpression());
         }
         return jpaQuery;
@@ -98,7 +98,7 @@ public final class QueryBuilder<Filter> {
 
     @SuppressWarnings("unchecked")
     private JPAQuery applySorting(JPAQuery jpaQuery, SortExpression sortExpression) {
-        if(sortExpression.getExpression() != null) {
+        if (sortExpression.getExpression() != null) {
             OrderSpecifier orderSpecifier = new OrderSpecifier(sortExpression.getSortOrder(), sortExpression.getExpression());
             jpaQuery.orderBy(orderSpecifier);
         }
