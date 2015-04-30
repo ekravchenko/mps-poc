@@ -1,4 +1,4 @@
-package org.testingzone.vo.contact;
+package org.testingzone.dbl.contact.data;
 
 
 public enum TelephoneType {

@@ -3,12 +3,12 @@ package org.testingzone.dbl.contact.command;
 import org.mockito.internal.util.Checks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.testingzone.dbl.contact.data.AddressType;
+import org.testingzone.dbl.contact.data.TelephoneType;
 import org.testingzone.dbl.contact.repository.ContactRepository;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.contact.Contact;
-import org.testingzone.vo.contact.TelephoneType;
 import org.testingzone.vo.contact.data.ContactData;
-import org.testingzone.vo.contact.query.AddressType;
 
 @Component
 public class SaveContactCommand {

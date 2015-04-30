@@ -1,6 +1,4 @@
-package org.testingzone.dbl.contact.query.helpers;
-
-import org.testingzone.vo.contact.query.AddressInfo;
+package org.testingzone.dbl.contact.data;
 
 public final class AllAddressesInfo {
 

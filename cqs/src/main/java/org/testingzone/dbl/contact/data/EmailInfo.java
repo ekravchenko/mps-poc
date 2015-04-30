@@ -1,4 +1,4 @@
-package org.testingzone.vo.contact.query;
+package org.testingzone.dbl.contact.data;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

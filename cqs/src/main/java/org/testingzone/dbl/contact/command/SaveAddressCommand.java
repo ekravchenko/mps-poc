@@ -3,6 +3,7 @@ package org.testingzone.dbl.contact.command;
 import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.testingzone.dbl.contact.data.AddressType;
 import org.testingzone.dbl.contact.repository.AddressRepository;
 import org.testingzone.dbl.contact.repository.ContactRepository;
 import org.testingzone.dbo.base.BinaryKey;
@@ -10,7 +11,6 @@ import org.testingzone.dbo.base.RowVersion;
 import org.testingzone.dbo.contact.Contact;
 import org.testingzone.dbo.contact.ContactAddress;
 import org.testingzone.vo.contact.data.AddressData;
-import org.testingzone.vo.contact.query.AddressType;
 
 @Component
 public class SaveAddressCommand {

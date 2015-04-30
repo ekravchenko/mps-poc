@@ -53,4 +53,6 @@ public class RestDoctorService {
     public DoctorDetailsInfo getDoctorDetails(@PathVariable(DoctorConstants.Path.DOCTOR_ID) String doctorPK) {
         return doctorService.getDoctorDetails(doctorPK);
     }
+
+
 }

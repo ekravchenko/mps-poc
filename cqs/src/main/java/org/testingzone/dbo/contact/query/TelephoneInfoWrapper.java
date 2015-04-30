@@ -2,9 +2,9 @@ package org.testingzone.dbo.contact.query;
 
 import com.mysema.query.annotations.QueryProjection;
 import lombok.Getter;
+import org.testingzone.dbl.contact.data.TelephoneInfo;
+import org.testingzone.dbl.contact.data.TelephoneType;
 import org.testingzone.dbo.base.BinaryKey;
-import org.testingzone.vo.contact.query.TelephoneInfo;
-import org.testingzone.vo.contact.TelephoneType;
 
 @Getter
 public class TelephoneInfoWrapper {

@@ -2,7 +2,6 @@ package org.testingzone.vo.doctor.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.testingzone.vo.contact.query.ContactInfo;
 
 import java.util.List;
 
@@ -11,16 +10,16 @@ public class DoctorDetailsInfo {
     @JsonProperty
     private DoctorInfo doctorInfo;
     @JsonProperty
-    private ContactInfo contactInfo;
+    private DoctorContactInfo doctorContactInfo;
     @JsonProperty
     private List<DoctorNetworkInfo> doctorNetworkInfos;
 
     @JsonCreator
     public DoctorDetailsInfo(@JsonProperty("doctorInfo") DoctorInfo doctorInfo,
-                             @JsonProperty("contactInfo") ContactInfo contactInfo,
+                             @JsonProperty("doctorContactInfo") DoctorContactInfo doctorContactInfo,
                              @JsonProperty("doctorNetworkInfos") List<DoctorNetworkInfo> doctorNetworkInfos) {
         this.doctorInfo = doctorInfo;
-        this.contactInfo = contactInfo;
+        this.doctorContactInfo = doctorContactInfo;
         this.doctorNetworkInfos = doctorNetworkInfos;
     }
 
@@ -28,8 +27,8 @@ public class DoctorDetailsInfo {
         return doctorInfo;
     }
 
-    public ContactInfo getContactInfo() {
-        return contactInfo;
+    public DoctorContactInfo getDoctorContactInfo() {
+        return doctorContactInfo;
     }
 
     public List<DoctorNetworkInfo> getDoctorNetworkInfos() {

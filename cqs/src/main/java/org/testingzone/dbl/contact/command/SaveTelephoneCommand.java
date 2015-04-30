@@ -1,8 +1,8 @@
 package org.testingzone.dbl.contact.command;
 
 import org.springframework.stereotype.Component;
+import org.testingzone.dbl.contact.data.TelephoneType;
 import org.testingzone.dbo.base.BinaryKey;
-import org.testingzone.vo.contact.TelephoneType;
 
 @Component
 public class SaveTelephoneCommand {

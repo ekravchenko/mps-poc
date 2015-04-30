@@ -4,14 +4,14 @@ import com.google.common.base.Preconditions;
 import com.mysema.query.jpa.impl.JPAQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.testingzone.dbl.contact.query.helpers.AllTelephonesInfo;
-import org.testingzone.dbl.contact.query.helpers.AllTelephonesInfoCreator;
+import org.testingzone.dbl.contact.data.AllTelephonesInfo;
+import org.testingzone.dbl.contact.data.AllTelephonesInfoCreator;
+import org.testingzone.dbl.contact.data.TelephoneInfo;
+import org.testingzone.dbl.contact.data.TelephoneType;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.contact.QContactTelephone;
 import org.testingzone.dbo.contact.query.QTelephoneInfoWrapper;
 import org.testingzone.dbo.contact.query.TelephoneInfoWrapper;
-import org.testingzone.vo.contact.query.TelephoneInfo;
-import org.testingzone.vo.contact.TelephoneType;
 
 import javax.persistence.EntityManager;
 import java.util.List;

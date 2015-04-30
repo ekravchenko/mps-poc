@@ -1,4 +1,4 @@
-package org.testingzone.vo.contact.query;
+package org.testingzone.dbl.contact.data;
 
 public enum AddressType {
 
