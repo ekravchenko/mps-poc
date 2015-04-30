@@ -1,12 +1,14 @@
 package org.testingzone.rest;
 
 
+import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.testingzone.service.BaseConstants;
 import org.testingzone.service.doctor.DoctorConstants;
 import org.testingzone.service.doctor.DoctorService;
 import org.testingzone.vo.base.*;
+import org.testingzone.vo.doctor.data.DoctorDetailsData;
 import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 
@@ -51,8 +53,27 @@ public class RestDoctorService {
 
     @RequestMapping(method = RequestMethod.GET, value = DoctorConstants.Uri.DOCTOR_DETAILS)
     public DoctorDetailsInfo getDoctorDetails(@PathVariable(DoctorConstants.Path.DOCTOR_ID) String doctorPK) {
+        Preconditions.checkArgument(doctorPK != null, "Doctor PK is null");
         return doctorService.getDoctorDetails(doctorPK);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = DoctorConstants.Uri.DOCTORS)
+    public String createDoctorDetails(@PathVariable(value = BaseConstants.Path.BUSINESS_ID) String businessPK,
+                                      DoctorDetailsData doctorDetailsData) {
+        Preconditions.checkArgument(doctorDetailsData != null, "DoctorDetailsData is null");
+        Preconditions.checkArgument(doctorDetailsData.doctorData != null, "DoctorDetailsData.doctorData is null");
 
+        doctorDetailsData.doctorData.businessPK = businessPK;
+        return doctorService.createDoctor(doctorDetailsData);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = DoctorConstants.Uri.DOCTOR_DETAILS)
+    public void updateDoctorDetails(@PathVariable(DoctorConstants.Path.DOCTOR_ID) String doctorPK,
+                                    DoctorDetailsData doctorDetailsData) {
+        Preconditions.checkArgument(doctorDetailsData != null, "DoctorDetailsData is null");
+        Preconditions.checkArgument(doctorDetailsData.doctorData != null, "DoctorDetailsData.doctorData is null");
+
+        doctorDetailsData.doctorData.doctorPK = doctorPK;
+        doctorService.updateDoctor(doctorDetailsData);
+    }
 }

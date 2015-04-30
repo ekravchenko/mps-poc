@@ -34,10 +34,10 @@ public class DoctorQuery {
         DoctorInfoWrapper doctorInfoWrapper = jpaQuery.from(doctor)
                 .leftJoin(doctor.person, person).leftJoin(person.contact, contact).leftJoin(doctor.business, business)
                 .where(doctor.doctorPk.eq(doctorPK))
-                .singleResult(new QDoctorInfoWrapper(doctor.doctorPk,person.personPk, contact.contactPk, person.name, person.surname,
+                .singleResult(new QDoctorInfoWrapper(doctor.doctorPk, person.personPk, contact.contactPk, person.name, person.surname,
                         person.personTitle, doctor.specialityDescription, business.billingNumber, doctor.practiceNumber));
 
-        Preconditions.checkNotNull(doctorInfoWrapper, "PK [{0}] is invalid", doctorPK);
+        Preconditions.checkArgument(doctorInfoWrapper != null, "PK '%s' is invalid", doctorPK);
         return doctorInfoWrapper.get();
     }
 }

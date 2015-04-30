@@ -10,6 +10,7 @@ import org.testingzone.vo.base.PageFilter;
 import org.testingzone.vo.base.SimpleFilter;
 import org.testingzone.vo.base.SortFilter;
 import org.testingzone.vo.base.SummaryPageInfo;
+import org.testingzone.vo.doctor.data.DoctorDetailsData;
 import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 
@@ -41,5 +42,13 @@ public class DoctorServiceImpl implements DoctorService {
         return doctorDetailsQuery.getDoctorDetailsInfo(doctorPK);
     }
 
+    @Override
+    public String createDoctor(DoctorDetailsData doctorDetailsData) {
+        return null;
+    }
 
+    @Override
+    public void updateDoctor(DoctorDetailsData doctorDetailsData) {
+
+    }
 }
