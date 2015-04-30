@@ -2,66 +2,75 @@ package org.testingzone.vo.contact.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.testingzone.vo.contact.data.AddressData;
 
 public final class ContactInfo {
 
     @JsonProperty
-    private final TelephoneInfo cellTelephoneInfo;
+    private final String contactPK;
     @JsonProperty
-    private final TelephoneInfo faxTelephoneInfo;
+    private final String cellTelephone;
     @JsonProperty
-    private final TelephoneInfo homeTelephoneInfo;
+    private final String faxTelephone;
     @JsonProperty
-    private final TelephoneInfo officeTelephoneInfo;
+    private final String homeTelephone;
     @JsonProperty
-    private final AddressInfo postalAddressInfo;
+    private final String officeTelephone;
     @JsonProperty
-    private final AddressInfo physicalAddressInfo;
+    private final AddressData postalAddress;
     @JsonProperty
-    private final EmailInfo emailInfo;
+    private final AddressData physicalAddress;
+    @JsonProperty
+    private final String email;
 
     @JsonCreator
-    public ContactInfo(@JsonProperty("cellTelephoneInfo") TelephoneInfo cellTelephoneInfo,
-                       @JsonProperty("faxTelephoneInfo") TelephoneInfo faxTelephoneInfo,
-                       @JsonProperty("homeTelephoneInfo") TelephoneInfo homeTelephoneInfo,
-                       @JsonProperty("officeTelephoneInfo") TelephoneInfo officeTelephoneInfo,
-                       @JsonProperty("postalAddressInfo") AddressInfo postalAddressInfo,
-                       @JsonProperty("physicalAddressInfo") AddressInfo physicalAddressInfo,
-                       @JsonProperty("emailInfo") EmailInfo emailInfo) {
-        this.cellTelephoneInfo = cellTelephoneInfo;
-        this.faxTelephoneInfo = faxTelephoneInfo;
-        this.homeTelephoneInfo = homeTelephoneInfo;
-        this.officeTelephoneInfo = officeTelephoneInfo;
-        this.postalAddressInfo = postalAddressInfo;
-        this.physicalAddressInfo = physicalAddressInfo;
-        this.emailInfo = emailInfo;
+    public ContactInfo(@JsonProperty("contactPK") String contactPK,
+                       @JsonProperty("cellTelephone") String cellTelephone,
+                       @JsonProperty("faxTelephone") String faxTelephone,
+                       @JsonProperty("homeTelephone") String homeTelephone,
+                       @JsonProperty("officeTelephone") String officeTelephone,
+                       @JsonProperty("postalAddress") AddressData postalAddressData,
+                       @JsonProperty("physicalAddress") AddressData physicalAddressData,
+                       @JsonProperty("email") String email) {
+        this.contactPK = contactPK;
+        this.cellTelephone = cellTelephone;
+        this.faxTelephone = faxTelephone;
+        this.homeTelephone = homeTelephone;
+        this.officeTelephone = officeTelephone;
+        this.postalAddress = postalAddressData;
+        this.physicalAddress = physicalAddressData;
+        this.email = email;
     }
 
-    public TelephoneInfo getCellTelephoneInfo() {
-        return cellTelephoneInfo;
+    public String getContactPK() {
+        return contactPK;
     }
 
-    public TelephoneInfo getFaxTelephoneInfo() {
-        return faxTelephoneInfo;
+    public String getCellTelephone() {
+        return cellTelephone;
     }
 
-    public TelephoneInfo getHomeTelephoneInfo() {
-        return homeTelephoneInfo;
+    public String getFaxTelephone() {
+        return faxTelephone;
     }
 
-    public TelephoneInfo getOfficeTelephoneInfo() {
-        return officeTelephoneInfo;
+    public String getHomeTelephone() {
+        return homeTelephone;
     }
 
-    public AddressInfo getPostalAddressInfo() {
-        return postalAddressInfo;
+    public String getOfficeTelephone() {
+        return officeTelephone;
     }
 
-    public AddressInfo getPhysicalAddressInfo() {
-        return physicalAddressInfo;
+    public AddressData getPostalAddress() {
+        return postalAddress;
     }
 
-    public EmailInfo getEmailInfo() {
-        return emailInfo;
+    public AddressData getPhysicalAddress() {
+        return physicalAddress;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }

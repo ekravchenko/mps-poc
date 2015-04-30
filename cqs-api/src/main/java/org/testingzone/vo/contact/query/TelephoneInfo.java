@@ -7,9 +7,7 @@ public final class TelephoneInfo {
 
     public final static TelephoneInfo EMPTY = new TelephoneInfo(null, null);
 
-    @JsonProperty
     private final String telephonePK;
-    @JsonProperty
     private final String number;
 
     @JsonCreator

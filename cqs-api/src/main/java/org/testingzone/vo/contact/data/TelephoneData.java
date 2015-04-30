@@ -4,6 +4,19 @@ import org.testingzone.vo.contact.TelephoneType;
 
 public class TelephoneData {
 
-    public String number;
-    public TelephoneType telephoneType;
+    private String number;
+    private TelephoneType telephoneType;
+
+    public TelephoneData(String number, TelephoneType telephoneType) {
+        this.number = number;
+        this.telephoneType = telephoneType;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public TelephoneType getTelephoneType() {
+        return telephoneType;
+    }
 }

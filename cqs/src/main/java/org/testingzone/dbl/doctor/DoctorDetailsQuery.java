@@ -9,6 +9,7 @@ import org.testingzone.dbl.contact.query.helpers.AllTelephonesInfo;
 import org.testingzone.dbl.doctor.query.DoctorNetworkQuery;
 import org.testingzone.dbl.doctor.query.DoctorQuery;
 import org.testingzone.dbo.base.BinaryKey;
+import org.testingzone.vo.contact.data.AddressData;
 import org.testingzone.vo.contact.query.AddressInfo;
 import org.testingzone.vo.contact.query.ContactInfo;
 import org.testingzone.vo.contact.query.EmailInfo;
@@ -52,7 +53,13 @@ public class DoctorDetailsQuery {
     private ContactInfo getDoctorContactInfo(BinaryKey contactPK) {
         AllTelephonesInfo allTelephonesInfo = telephoneQuery.getAllTelephonesInfo(contactPK);
         EmailInfo emailInfo = emailQuery.getEmailInfo(contactPK);
-        return new ContactInfo(allTelephonesInfo.getCellphone(), allTelephonesInfo.getFax(),
-                allTelephonesInfo.getHome(), allTelephonesInfo.getOffice(), AddressInfo.EMPTY, AddressInfo.EMPTY, emailInfo);
+        return new ContactInfo(contactPK.toString(),
+                allTelephonesInfo.getCellphone().getNumber(),
+                allTelephonesInfo.getFax().getNumber(),
+                allTelephonesInfo.getHome().getNumber(),
+                allTelephonesInfo.getOffice().getNumber(),
+                AddressData.EMPTY,
+                AddressData.EMPTY,
+                emailInfo.getEmail());
     }
 }
