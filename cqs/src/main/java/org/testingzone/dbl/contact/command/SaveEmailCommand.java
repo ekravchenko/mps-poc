@@ -1,11 +1,13 @@
 package org.testingzone.dbl.contact.command;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.testingzone.dbl.contact.repository.ContactRepository;
 import org.testingzone.dbl.contact.repository.EmailRepository;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.contact.ContactEmail;
 
+@Component
 public class SaveEmailCommand {
 
     private EmailRepository emailRepository;

@@ -32,7 +32,6 @@ public class SaveContactCommand {
         BinaryKey contactPK = BinaryKey.valueOf(contactData.contactPK);
         if (contactPK == null) {
             Contact contact = new Contact();
-            contact.setContactPk(contactPK);
             contact = contactRepository.save(contact);
             contactPK = contact.getContactPk();
         }

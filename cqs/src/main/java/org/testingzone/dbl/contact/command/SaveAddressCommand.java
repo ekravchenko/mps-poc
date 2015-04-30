@@ -24,11 +24,12 @@ public class SaveAddressCommand {
         this.contactRepository = contactRepository;
     }
 
-    public BinaryKey saveAddress(BinaryKey contactPK, AddressData addressData) {
+    public BinaryKey saveAddress(BinaryKey contactPK, AddressType addressType, AddressData addressData) {
         Preconditions.checkNotNull(contactPK, "Contact PK is null");
+        Preconditions.checkNotNull(addressType, "AddressType is null");
         Preconditions.checkNotNull(addressData, "AddressData is null");
 
-        ContactAddress address = getAddressReference(contactPK, addressData.addressType);
+        ContactAddress address = getAddressReference(contactPK, addressType);
         address.setCode(addressData.code);
         address.setLine1(addressData.line1);
         address.setLine2(addressData.line2);

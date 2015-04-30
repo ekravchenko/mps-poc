@@ -8,6 +8,6 @@ import org.testingzone.dbo.contact.ContactEmail;
 
 public interface EmailRepository extends JpaRepository<ContactEmail, BinaryKey> {
 
-    @Query("select e from ContactEmail e left join a.contact c where c.contactPk=:contact")
+    @Query("select e from ContactEmail e left join e.contact c where c.contactPk=:contact")
     ContactEmail findEmail(@Param("contact") BinaryKey contactPK);
 }
