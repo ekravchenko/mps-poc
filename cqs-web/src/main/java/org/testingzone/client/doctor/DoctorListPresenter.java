@@ -7,11 +7,13 @@ import com.mvp4g.client.view.LazyView;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
 import org.testingzone.client.service.DoctorService;
+import org.testingzone.client.service.ErrorInfoDecoder;
 import org.testingzone.vo.base.SortOrder;
 import org.testingzone.vo.base.SummaryPageInfo;
 import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.DoctorSortProperty;
 import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
+import org.testingzone.vo.error.ErrorInfo;
 
 
 @Presenter(view = DoctorListView.class)
@@ -39,15 +41,18 @@ public class DoctorListPresenter extends LazyPresenter<DoctorListPresenter.Docto
             }
         });
 
-        doctorService.getDoctorDetails("0000000e9e2ad93d00000000000000cf", new MethodCallback<DoctorDetailsInfo>() {
+        doctorService.getDoctorDetails("31", new MethodCallback<DoctorDetailsInfo>() {
             @Override
             public void onFailure(Method method, Throwable throwable) {
                 System.out.println("Failed!");
+                ErrorInfo errorInfo = ErrorInfoDecoder.decode(method.getResponse().getText());
+                System.out.println(errorInfo);
             }
 
             @Override
             public void onSuccess(Method method, DoctorDetailsInfo doctorDetailsInfo) {
                 System.out.println("Success!");
+                System.out.println("Response:" + method.getResponse().getText());
             }
         });
     }

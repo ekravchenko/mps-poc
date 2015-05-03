@@ -1,4 +1,4 @@
-package org.testingzone.rest;
+package org.testingzone.rest.filter;
 
 import org.springframework.stereotype.Component;
 

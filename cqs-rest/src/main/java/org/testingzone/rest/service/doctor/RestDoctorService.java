@@ -1,4 +1,4 @@
-package org.testingzone.rest;
+package org.testingzone.rest.service.doctor;
 
 
 import com.google.common.base.Preconditions;

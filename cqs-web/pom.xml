@@ -55,6 +55,11 @@
             <version>1.16.4</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava-gwt</artifactId>
+            <version>18.0</version>
+        </dependency>
     </dependencies>
 
     <build>

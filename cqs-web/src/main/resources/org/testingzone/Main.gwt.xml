@@ -17,4 +17,5 @@
 
     <!-- Resty GWT -->
     <inherits name="org.fusesource.restygwt.RestyGWT"/>
+    <inherits name="com.google.common.collect.Collect"/>
 </module>

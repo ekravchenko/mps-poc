@@ -26,10 +26,10 @@ public class MyConfig {
     @Bean(name = "dataSource")
     public DataSource dataSource() {
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        basicDataSource.setUrl("jdbc:sqlserver://localhost;databaseName=mypractice;");
-        basicDataSource.setUsername("sa");
-        basicDataSource.setPassword("Qwerty123");
+        basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        basicDataSource.setUrl("jdbc:mysql://localhost/mypractice");
+        basicDataSource.setUsername("root");
+        basicDataSource.setPassword("root");
         basicDataSource.setMaxActive(50);
         return basicDataSource;
     }
