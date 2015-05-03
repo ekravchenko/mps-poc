@@ -15,10 +15,9 @@ public class ErrorInfoDecoder {
 
         JavaScriptObject jsObject = JsonUtils.safeEval(text);
         JSONObject jsonObject = new JSONObject(jsObject);
-        JSONValue errorValue = jsonObject.get("error");
+        JSONValue codeValue = jsonObject.get("errorId");
         JSONValue messageValue = jsonObject.get("message");
-        JSONValue detailsValue = jsonObject.get("details");
 
-        return new ErrorInfo(errorValue.toString(), messageValue.toString(), detailsValue.toString());
+        return new ErrorInfo(codeValue.toString(), messageValue.toString());
     }
 }
