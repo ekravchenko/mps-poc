@@ -2,7 +2,7 @@ package org.testingzone.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.testingzone.dbl.doctor.DoctorDetailsQuery;
+import org.testingzone.dbl.doctor.query.DoctorDetailsQuery;
 import org.testingzone.dbl.doctor.query.DoctorSummaryQuery;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.service.doctor.DoctorService;

@@ -1,4 +1,4 @@
-package org.testingzone.dbl.doctor;
+package org.testingzone.dbl.doctor.query;
 
 import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
