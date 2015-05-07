@@ -6,7 +6,7 @@ import org.testingzone.dbl.contact.data.EmailInfo;
 
 public class EmailInfoWrapper {
 
-    private EmailInfo emailInfo;
+    private final EmailInfo emailInfo;
 
     @QueryProjection
     public EmailInfoWrapper(BinaryKey emailPK, String email) {

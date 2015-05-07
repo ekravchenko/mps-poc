@@ -25,7 +25,7 @@ public abstract class BaseJoinRequest implements JoinRequest {
      *               Shouldn't be null
      * @param alias  - Alias that will be further used in 'where' clause
      */
-    public BaseJoinRequest(Expression target, Path alias) {
+    BaseJoinRequest(Expression target, Path alias) {
         this.target = target;
         this.alias = alias;
     }

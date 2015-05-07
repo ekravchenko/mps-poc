@@ -1,4 +1,4 @@
-package org.testingzone.dbl.doctor.query;
+package org.testingzone.dbl.doctor.query.impl;
 
 import com.google.common.base.Strings;
 import com.mysema.query.types.EntityPath;

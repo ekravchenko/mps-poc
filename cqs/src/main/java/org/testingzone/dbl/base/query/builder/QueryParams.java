@@ -21,7 +21,7 @@ public final class QueryParams<Filter> {
         this(null, new ArrayList<JoinRequest>(), PageFilter.NONE, SortExpression.NONE);
     }
 
-    public QueryParams(Filter filter, List<JoinRequest> joinRequests, PageFilter pageFilter, SortExpression sortExpression) {
+    private QueryParams(Filter filter, List<JoinRequest> joinRequests, PageFilter pageFilter, SortExpression sortExpression) {
         this.filter = filter;
         this.pageFilter = pageFilter;
         this.joinRequests = joinRequests;

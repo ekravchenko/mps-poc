@@ -1,7 +1,5 @@
 package org.testingzone.dbo.base;
 
-import org.testingzone.dbo.base.AbstractInfoWrapper;
-
 import java.util.LinkedList;
 import java.util.List;
 

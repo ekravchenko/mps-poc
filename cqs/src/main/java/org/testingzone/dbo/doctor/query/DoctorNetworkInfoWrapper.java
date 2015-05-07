@@ -13,8 +13,8 @@ public final class DoctorNetworkInfoWrapper extends AbstractInfoWrapper<DoctorNe
 
     @QueryProjection
     public DoctorNetworkInfoWrapper(BinaryKey doctorNetworkPK, String scheme, Date dateFrom, Date dateTo) {
-        long dateFromTime = dateFrom != null ? dateFrom.getTime() : null;
-        long dateToTime = dateTo != null ? dateTo.getTime() : null;
+        Long dateFromTime = dateFrom != null ? dateFrom.getTime() : null;
+        Long dateToTime = dateTo != null ? dateTo.getTime() : null;
         this.doctorNetworkInfo = new DoctorNetworkInfo(doctorNetworkPK.toString(), scheme, dateFromTime, dateToTime);
     }
 

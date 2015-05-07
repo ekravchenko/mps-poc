@@ -5,7 +5,7 @@ public enum TelephoneType {
 
     HOME(2), FAX(4), OFFICE(1), MOBILE(3);
 
-    private int id;
+    private final int id;
 
     TelephoneType(int id) {
         this.id = id;

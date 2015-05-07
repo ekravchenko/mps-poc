@@ -5,7 +5,7 @@ public enum AddressType {
     PHYSICAL(2),
     POSTAL(1);
 
-    private int id;
+    private final int id;
 
     AddressType(int id) {
         this.id = id;

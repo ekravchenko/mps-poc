@@ -13,7 +13,7 @@ public abstract class AbstractEntity implements Serializable {
      *
      * @return PrimaryKey of entity
      */
-    public abstract BinaryKey getPrimaryKey();
+    protected abstract BinaryKey getPrimaryKey();
 
     public byte[] getId() {
         BinaryKey primaryKey = getPrimaryKey();

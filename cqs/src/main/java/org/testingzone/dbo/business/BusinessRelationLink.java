@@ -6,7 +6,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.testingzone.dbo.base.AbstractSystemEntity;
 import org.testingzone.dbo.base.BinaryKey;
-import org.testingzone.dbo.business.Business;
 
 import javax.persistence.*;
 

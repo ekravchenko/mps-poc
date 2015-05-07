@@ -34,7 +34,7 @@ public class MyConfig {
         return basicDataSource;
     }
 
-    public Properties jpaProperties() {
+    private Properties jpaProperties() {
         try {
             Properties properties = new Properties();
             InputStream is = getClass().getClassLoader().getResourceAsStream("hibernate.properties");

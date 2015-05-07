@@ -62,9 +62,6 @@ public class Doctor extends AbstractSystemEntity implements Inactivating {
     @Column(name = "Qualification")
     private String qualification;
 
-    @Column(name = "SmsFlag", nullable = false)
-    private boolean smsFlag;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "doctor", cascade = CascadeType.ALL)
     private Set<DoctorNetwork> doctorNetworks = new HashSet<>(0);
 

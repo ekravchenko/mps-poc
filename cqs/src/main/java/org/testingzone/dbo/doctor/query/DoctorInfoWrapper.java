@@ -8,7 +8,7 @@ import org.testingzone.vo.person.Title;
 
 public class DoctorInfoWrapper extends AbstractInfoWrapper<DoctorInfo> {
 
-    private DoctorInfo doctorInfo;
+    private final DoctorInfo doctorInfo;
 
     @QueryProjection
     public DoctorInfoWrapper(BinaryKey doctorPK, BinaryKey personPK, BinaryKey contactPK, String name, String surname,

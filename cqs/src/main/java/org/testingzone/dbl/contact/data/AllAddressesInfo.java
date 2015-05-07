@@ -4,9 +4,9 @@ public final class AllAddressesInfo {
 
     public static final AllAddressesInfo EMPTY = new AllAddressesInfo(AddressInfo.EMPTY, AddressInfo.EMPTY);
 
-    private AddressInfo physical;
+    private final AddressInfo physical;
 
-    private AddressInfo postal;
+    private final AddressInfo postal;
 
     public AllAddressesInfo(AddressInfo physical, AddressInfo postal) {
         this.physical = physical;

@@ -33,11 +33,11 @@ public final class DoctorNetworkInfo {
         return scheme;
     }
 
-    public long getDateFrom() {
+    public Long getDateFrom() {
         return dateFrom;
     }
 
-    public long getDateTo() {
+    public Long getDateTo() {
         return dateTo;
     }
 }

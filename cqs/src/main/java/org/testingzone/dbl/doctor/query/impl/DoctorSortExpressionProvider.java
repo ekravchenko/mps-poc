@@ -1,4 +1,4 @@
-package org.testingzone.dbl.doctor.query;
+package org.testingzone.dbl.doctor.query.impl;
 
 import com.mysema.query.types.Expression;
 import org.testingzone.dbl.base.query.builder.sort.AbstractSortExpressionProvider;

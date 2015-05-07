@@ -9,7 +9,7 @@ import java.util.Date;
  *
  * @author tamara.kyrychenko
  */
-public interface SystemDataAware {
+interface SystemDataAware {
 
     public Date getCreatedTime();
 

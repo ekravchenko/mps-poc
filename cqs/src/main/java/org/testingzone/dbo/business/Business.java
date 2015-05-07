@@ -55,9 +55,6 @@ public class Business extends AbstractSystemEntity implements Inactivating {
     @Column(name = "BillingNumber", nullable = false, length = 13)
     private String billingNumber;
 
-    @Column(name = "BillingIdentifier", length = 15)
-    private String billingIdentifier;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "business")
     private Set<Doctor> doctors = new HashSet<>(0);
 

@@ -23,7 +23,7 @@ public final class QueryBuilder<Filter> {
         this(entityManager, queryProvider, new QueryParams<Filter>());
     }
 
-    public QueryBuilder(EntityManager entityManager, QueryProvider<Filter> queryProvider, QueryParams<Filter> queryParams) {
+    private QueryBuilder(EntityManager entityManager, QueryProvider<Filter> queryProvider, QueryParams<Filter> queryParams) {
         this.entityManager = entityManager;
         this.queryProvider = queryProvider;
         this.queryParams = queryParams;
@@ -39,14 +39,14 @@ public final class QueryBuilder<Filter> {
         return new QueryBuilder<>(entityManager, queryProvider, queryParams);
     }
 
-    public QueryBuilder<Filter> joins(List<JoinRequest> joins) {
-        QueryParams<Filter> queryParams = this.queryParams.joins(joins);
-        return new QueryBuilder<>(entityManager, queryProvider, queryParams);
-    }
-
     public QueryBuilder<Filter> joins(JoinRequest... joins) {
         List<JoinRequest> joinsList = (joins != null) ? Arrays.asList(joins) : new ArrayList<JoinRequest>();
         return joins(joinsList);
+    }
+
+    private QueryBuilder<Filter> joins(List<JoinRequest> joins) {
+        QueryParams<Filter> queryParams = this.queryParams.joins(joins);
+        return new QueryBuilder<>(entityManager, queryProvider, queryParams);
     }
 
     public QueryBuilder<Filter> sort(SortExpression sortExpression) {
