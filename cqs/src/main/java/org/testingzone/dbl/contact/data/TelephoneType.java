@@ -1,6 +1,8 @@
 package org.testingzone.dbl.contact.data;
 
 
+import java.util.Objects;
+
 public enum TelephoneType {
 
     HOME(2), FAX(4), OFFICE(1), MOBILE(3);
@@ -17,10 +19,10 @@ public enum TelephoneType {
 
     public static TelephoneType valueOf(Integer id) {
         for (TelephoneType telephoneType : values()) {
-            if (Integer.valueOf(telephoneType.id).equals(id)) {
+            if (Objects.equals(id, telephoneType.id)) {
                 return telephoneType;
             }
         }
-        return null;
+        throw new IllegalArgumentException(String.format("Unknown TelephoneType id %s", id));
     }
 }

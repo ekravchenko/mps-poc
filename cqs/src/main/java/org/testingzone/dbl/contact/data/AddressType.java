@@ -1,5 +1,7 @@
 package org.testingzone.dbl.contact.data;
 
+import com.google.common.base.Objects;
+
 public enum AddressType {
 
     PHYSICAL(2),
@@ -17,10 +19,10 @@ public enum AddressType {
 
     public static AddressType valueOf(Integer id) {
         for (AddressType addressType : values()) {
-            if (Integer.valueOf(addressType.id).equals(id)) {
+            if (Objects.equal(id, addressType.id)) {
                 return addressType;
             }
         }
-        return null;
+        throw new IllegalArgumentException(String.format("Unknown AddressType id %s", id));
     }
 }

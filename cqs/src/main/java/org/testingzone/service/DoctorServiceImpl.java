@@ -44,7 +44,7 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public String createDoctor(DoctorDetailsData doctorDetailsData) {
-        return null;
+        return "";
     }
 
     @Override

@@ -1,5 +1,7 @@
 package org.testingzone.vo.person;
 
+import java.util.Objects;
+
 public enum Title {
     DR(1, "Dr"),
     MISS(2, "Miss"),
@@ -29,10 +31,10 @@ public enum Title {
 
     public static Title valueOf(Integer id) {
         for (Title title : Title.values()) {
-            if (Integer.valueOf(title.id).equals(id)) {
+            if (Objects.equals(id, title.id)) {
                 return title;
             }
         }
-        return null;
+        return Title.UNKNOWN;
     }
 }
