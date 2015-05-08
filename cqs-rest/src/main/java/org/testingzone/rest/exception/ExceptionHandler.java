@@ -6,7 +6,7 @@ import org.testingzone.vo.error.ErrorInfo;
 
 import java.util.Random;
 
-public class ExceptionHandler {
+class ExceptionHandler {
 
     private static final int CODE_MAX_VALUE = 10000;
     private static final Logger LOG = LoggerFactory.getLogger(ExceptionHandler.class);

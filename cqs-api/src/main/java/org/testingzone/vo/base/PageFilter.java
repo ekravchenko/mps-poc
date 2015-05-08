@@ -2,7 +2,7 @@ package org.testingzone.vo.base;
 
 public class PageFilter {
 
-    public static PageFilter NONE = new PageFilter(0, 0);
+    public static final PageFilter NONE = new PageFilter(0, 0);
 
     private final int pageIndex;
 

@@ -10,8 +10,8 @@ import org.testingzone.vo.contact.data.AddressData;
 @Getter
 public class AddressInfoWrapper {
 
-    private AddressInfo addressInfo;
-    private AddressType addressType;
+    private final AddressInfo addressInfo;
+    private final AddressType addressType;
 
     @QueryProjection
     public AddressInfoWrapper(BinaryKey addressPK, String line1, String line2, String line3, String code, Integer addressType) {

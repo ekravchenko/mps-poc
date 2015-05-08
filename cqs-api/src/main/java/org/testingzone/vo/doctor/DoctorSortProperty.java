@@ -4,7 +4,7 @@ public enum DoctorSortProperty {
 
     NAME("name");
 
-    private String s;
+    private final String s;
 
     DoctorSortProperty(String str) {
         this.s = str;

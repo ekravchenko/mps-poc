@@ -9,9 +9,9 @@ import org.testingzone.dbo.base.BinaryKey;
 @Getter
 public class TelephoneInfoWrapper {
 
-    private TelephoneInfo telephoneInfo;
+    private final TelephoneInfo telephoneInfo;
 
-    private TelephoneType telephoneType;
+    private final TelephoneType telephoneType;
 
     @QueryProjection
     public TelephoneInfoWrapper(BinaryKey telephoneId, String number, Integer type) {

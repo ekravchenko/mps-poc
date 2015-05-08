@@ -13,8 +13,8 @@ public enum Title {
     SISTER(8, "Sister"),
     UNKNOWN(99, "Unknown");
 
-    private int id;
-    private String title;
+    private final int id;
+    private final String title;
 
     Title(int id, String title) {
         this.title = title;

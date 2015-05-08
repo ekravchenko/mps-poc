@@ -5,14 +5,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class DoctorDetailsInfo {
+public final class DoctorDetailsInfo {
 
     @JsonProperty
-    private DoctorInfo doctorInfo;
+    private final DoctorInfo doctorInfo;
     @JsonProperty
-    private DoctorContactInfo doctorContactInfo;
+    private final DoctorContactInfo doctorContactInfo;
     @JsonProperty
-    private List<DoctorNetworkInfo> doctorNetworkInfos;
+    private final List<DoctorNetworkInfo> doctorNetworkInfos;
 
     @JsonCreator
     public DoctorDetailsInfo(@JsonProperty("doctorInfo") DoctorInfo doctorInfo,

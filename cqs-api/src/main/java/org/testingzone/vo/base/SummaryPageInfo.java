@@ -9,10 +9,10 @@ import java.util.List;
 public class SummaryPageInfo<T> {
 
     @JsonProperty
-    private long totalCount;
+    private final long totalCount;
 
     @JsonProperty
-    private List<T> items;
+    private final List<T> items;
 
     public SummaryPageInfo(long totalCount) {
         this(totalCount, new ArrayList<T>());

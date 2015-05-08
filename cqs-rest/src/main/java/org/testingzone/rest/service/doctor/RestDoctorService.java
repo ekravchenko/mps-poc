@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 public class RestDoctorService {
 
-    private DoctorService doctorService;
+    private final DoctorService doctorService;
 
     @Autowired
     public RestDoctorService(DoctorService doctorService) {

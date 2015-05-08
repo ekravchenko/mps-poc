@@ -8,7 +8,7 @@ public final class SortFilter {
 
     private final SortOrder sortOrder;
 
-    public SortFilter(String sortProperty, SortOrder sortOrder) {
+    private SortFilter(String sortProperty, SortOrder sortOrder) {
         this.sortProperty = sortProperty;
         this.sortOrder = sortOrder;
     }

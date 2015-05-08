@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 public class BinaryKey implements Serializable, Comparable<BinaryKey> {
 
-    private byte[] bytes;
+    private final byte[] bytes;
 
     BinaryKey(byte[] bytes) {
         this.bytes = deepCopy(bytes);
