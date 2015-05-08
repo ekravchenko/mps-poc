@@ -51,6 +51,10 @@ public class DoctorDetailsQueryImpl implements DoctorDetailsQuery {
     }
 
     private DoctorContactInfo getDoctorContactInfo(BinaryKey contactPK) {
+        if(contactPK == null) {
+            return DoctorContactInfo.EMPTY;
+        }
+
         AllTelephonesInfo allTelephonesInfo = telephoneQuery.getAllTelephonesInfo(contactPK);
         EmailInfo emailInfo = emailQuery.getEmailInfo(contactPK);
         return new DoctorContactInfo(contactPK.toString(),
