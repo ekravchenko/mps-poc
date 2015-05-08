@@ -15,7 +15,6 @@ import java.sql.Types;
  * It tells hibernate how to deal with it.
  *
  */
-@SuppressWarnings("WeakerAccess")
 public class BinaryKeyType implements UserType {
 
     private static final int[] SQL_TYPES = new int[]{Types.VARBINARY};
@@ -46,7 +45,7 @@ public class BinaryKeyType implements UserType {
         if (rs.wasNull()) {
             return null;
         }
-        return BinaryKey.valueOf(bytes);
+        return new BinaryKey(bytes);
     }
 
     @Override
@@ -54,7 +53,7 @@ public class BinaryKeyType implements UserType {
         if (value == null) {
             st.setNull(index, Types.VARBINARY);
         } else {
-            st.setBytes(index, ((BinaryKey) value).getBytes());
+            st.setBytes(index, ((BinaryKey) value).bytes());
         }
     }
 
@@ -63,8 +62,8 @@ public class BinaryKeyType implements UserType {
         if (value == null) {
             return null;
         }
-        byte[] original = ((BinaryKey) value).getBytes();
-        return BinaryKey.valueOf(original);
+        byte[] original = ((BinaryKey) value).bytes();
+        return new BinaryKey(original);
     }
 
     @Override

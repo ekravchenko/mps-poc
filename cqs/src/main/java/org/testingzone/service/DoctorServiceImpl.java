@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.testingzone.dbl.doctor.query.DoctorDetailsQuery;
 import org.testingzone.dbl.doctor.query.DoctorSummaryQuery;
 import org.testingzone.dbo.base.BinaryKey;
+import org.testingzone.dbo.base.SafeBinaryKey;
 import org.testingzone.service.doctor.DoctorService;
 import org.testingzone.vo.base.PageFilter;
 import org.testingzone.vo.base.SimpleFilter;
@@ -38,7 +39,7 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public DoctorDetailsInfo getDoctorDetails(String id) {
-        BinaryKey doctorPK = BinaryKey.valueOf(id);
+        BinaryKey doctorPK = new SafeBinaryKey(id).key();
         return doctorDetailsQuery.getDoctorDetailsInfo(doctorPK);
     }
 

@@ -11,6 +11,7 @@ import org.testingzone.dbl.doctor.query.DoctorDetailsQuery;
 import org.testingzone.dbl.doctor.query.DoctorNetworkQuery;
 import org.testingzone.dbl.doctor.query.DoctorQuery;
 import org.testingzone.dbo.base.BinaryKey;
+import org.testingzone.dbo.base.SafeBinaryKey;
 import org.testingzone.vo.doctor.query.DoctorContactInfo;
 import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.query.DoctorInfo;
@@ -44,7 +45,7 @@ public class DoctorDetailsQueryImpl implements DoctorDetailsQuery {
         DoctorInfo doctorInfo = doctorQuery.getDoctorInfo(doctorPK);
         List<DoctorNetworkInfo> doctorNetworkInfoList = doctorNetworkQuery.getDoctorNetworks(doctorPK);
 
-        BinaryKey contactPK = BinaryKey.valueOf(doctorInfo.getContactPK());
+        BinaryKey contactPK = new SafeBinaryKey(doctorInfo.getContactPK()).key();
         DoctorContactInfo contactInfo = getDoctorContactInfo(contactPK);
 
         return new DoctorDetailsInfo(doctorInfo, contactInfo, doctorNetworkInfoList);

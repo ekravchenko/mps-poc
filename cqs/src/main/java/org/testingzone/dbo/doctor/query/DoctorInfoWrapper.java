@@ -3,10 +3,9 @@ package org.testingzone.dbo.doctor.query;
 import com.mysema.query.annotations.QueryProjection;
 import org.testingzone.dbo.base.AbstractInfoWrapper;
 import org.testingzone.dbo.base.BinaryKey;
+import org.testingzone.dbo.base.SafeBinaryKey;
 import org.testingzone.vo.doctor.query.DoctorInfo;
 import org.testingzone.vo.person.Title;
-
-import java.util.Objects;
 
 public class DoctorInfoWrapper extends AbstractInfoWrapper<DoctorInfo> {
 
@@ -16,9 +15,9 @@ public class DoctorInfoWrapper extends AbstractInfoWrapper<DoctorInfo> {
     public DoctorInfoWrapper(BinaryKey doctorPK, BinaryKey personPK, BinaryKey contactPK, String name, String surname,
                              Integer title, String speciality, String billingNumber, String treatingNumber) {
         this.doctorInfo = new DoctorInfo(
-                Objects.toString(doctorPK, null),
-                Objects.toString(personPK, null),
-                Objects.toString(contactPK, null),
+                new SafeBinaryKey(doctorPK).hex(),
+                new SafeBinaryKey(personPK).hex(),
+                new SafeBinaryKey(contactPK).hex(),
                 name, surname, Title.valueOf(title), speciality, billingNumber, treatingNumber);
     }
 

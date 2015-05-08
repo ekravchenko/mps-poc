@@ -1,5 +1,7 @@
 package org.testingzone.dbo.base;
 
+import com.google.common.base.MoreObjects;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -7,32 +9,23 @@ import java.util.Arrays;
  * Wrapper class that should be used instead of byte arrays for primary/foreign keys in Hibernate/JPA.
  * Using byte arrays as a keys is a bad practice and not recommended by Hibernate/JPA community.
  * There are many issues related to using byte arrays.
- * <p/>
+ * <p>
  * Please note. This class is completely immutable.
  */
-@SuppressWarnings("UnusedDeclaration")
 public class BinaryKey implements Serializable, Comparable<BinaryKey> {
 
     private byte[] bytes;
 
-    public BinaryKey(byte[] bytes) {
+    BinaryKey(byte[] bytes) {
         this.bytes = deepCopy(bytes);
     }
 
-    public static BinaryKey valueOf(byte[] bytes) {
-        return new BinaryKey(bytes);
+    byte[] bytes() {
+        return deepCopy(bytes);
     }
 
-    public static BinaryKey valueOf(String hex) {
-        if (hex == null) {
-            return null;
-        }
-        byte[] b = HexUtils.decodeHex(hex);
-        return new BinaryKey(b);
-    }
-
-    public static BinaryKey valueOfOrNull(byte[] bytes) {
-        return bytes != null ? valueOf(bytes) : null;
+    String hex() {
+        return HexUtils.encodeHexString(bytes);
     }
 
     @Override
@@ -51,7 +44,7 @@ public class BinaryKey implements Serializable, Comparable<BinaryKey> {
 
     @Override
     public String toString() {
-        return HexUtils.encodeHexString(bytes);
+        return MoreObjects.toStringHelper(this).add("bytes", hex()).toString();
     }
 
     @Override
@@ -61,10 +54,6 @@ public class BinaryKey implements Serializable, Comparable<BinaryKey> {
         }
         String hex = toString();
         return hex.compareTo(o.toString());
-    }
-
-    public byte[] getBytes() {
-        return deepCopy(bytes);
     }
 
     public byte[] deepCopy(byte[] original) {

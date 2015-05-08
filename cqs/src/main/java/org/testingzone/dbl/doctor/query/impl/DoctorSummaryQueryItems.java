@@ -10,6 +10,7 @@ import org.testingzone.dbl.base.query.builder.QueryProvider;
 import org.testingzone.dbl.base.query.builder.join.JoinRequest;
 import org.testingzone.dbl.base.query.builder.join.LeftJoinRequest;
 import org.testingzone.dbo.base.BinaryKey;
+import org.testingzone.dbo.base.SafeBinaryKey;
 import org.testingzone.dbo.business.QBusiness;
 import org.testingzone.dbo.business.QBusinessRelationLink;
 import org.testingzone.dbo.doctor.QDoctor;
@@ -47,7 +48,7 @@ public class DoctorSummaryQueryItems implements QueryProvider<SimpleFilter> {
         if (!Strings.isNullOrEmpty(businessPK)) {
             QBusiness business = QBusiness.business;
             JoinRequest businessJoin = new LeftJoinRequest(doctor.business, business);
-            BinaryKey businessKey = BinaryKey.valueOf(businessPK);
+            BinaryKey businessKey = new SafeBinaryKey(businessPK).key();
             BooleanExpression businessPredicate = business.businessPk.eq(businessKey);
 
             QBusinessRelationLink businessRelationLink = QBusinessRelationLink.businessRelationLink;

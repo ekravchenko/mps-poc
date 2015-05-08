@@ -12,6 +12,7 @@ import org.testingzone.dbl.contact.data.AddressType;
 import org.testingzone.dbl.contact.data.TelephoneType;
 import org.testingzone.dbl.contact.repository.ContactRepository;
 import org.testingzone.dbo.base.BinaryKey;
+import org.testingzone.dbo.base.SafeBinaryKey;
 import org.testingzone.dbo.contact.Contact;
 import org.testingzone.vo.contact.data.ContactData;
 
@@ -36,7 +37,7 @@ public class SaveContactCommandImpl implements SaveContactCommand {
     public BinaryKey saveContact(ContactData contactData) {
         Checks.checkNotNull(contactData, "ContactData is null");
 
-        BinaryKey contactPK = BinaryKey.valueOf(contactData.contactPK);
+        BinaryKey contactPK = new SafeBinaryKey(contactData.contactPK).key();
         if (contactPK == null) {
             Contact contact = new Contact();
             contact = contactRepository.save(contact);

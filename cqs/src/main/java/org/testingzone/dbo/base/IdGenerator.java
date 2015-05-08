@@ -21,7 +21,7 @@ public class IdGenerator implements IdentifierGenerator {
 
     @Override
     public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
-        return BinaryKey.valueOf(generateUUIDAsBytes());
+        return new SafeBinaryKey(generateUUIDAsBytes()).key();
     }
 
     public static String toUUID(byte[] id) {
