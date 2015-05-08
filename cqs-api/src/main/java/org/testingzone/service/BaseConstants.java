@@ -10,6 +10,7 @@ public final class BaseConstants {
         }
 
         public final static String CONTEXT_ROOT = "/mps/api/v2";
+        public static final String BUSINESS = "/business/{" + BaseConstants.Path.BUSINESS_ID + "}";
     }
 
     public static class Path {

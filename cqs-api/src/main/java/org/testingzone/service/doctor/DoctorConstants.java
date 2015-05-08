@@ -18,8 +18,8 @@ public final class DoctorConstants {
         private Uri() {
         }
 
-        public static final String DOCTORS = "/business/{" + BaseConstants.Path.BUSINESS_ID + "}/doctors";
+        public static final String DOCTORS = BaseConstants.Uri.BUSINESS + "/doctors";
         public static final String DOCTORS_PAGE = DOCTORS + "/page";
-        public static final String DOCTOR_DETAILS = "/doctors/{" + Path.DOCTOR_ID + "}";
+        public static final String DOCTOR_DETAILS = DOCTORS + "/{" + Path.DOCTOR_ID + "}";
     }
 }
