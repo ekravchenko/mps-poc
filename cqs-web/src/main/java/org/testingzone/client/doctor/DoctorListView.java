@@ -1,13 +1,12 @@
 package org.testingzone.client.doctor;
 
-import org.gwtbootstrap3.client.ui.Heading;
-import org.gwtbootstrap3.client.ui.constants.HeadingSize;
-import org.gwtbootstrap3.client.ui.html.Div;
+import com.github.gwtbootstrap.client.ui.Heading;
+import com.github.gwtbootstrap.client.ui.base.DivWidget;
 
-public class DoctorListView extends Div implements DoctorListPresenter.DoctorListView {
+public class DoctorListView extends DivWidget implements DoctorListPresenter.DoctorListView {
 
     @Override
     public void createView() {
-        add(new Heading(HeadingSize.H1, "Testing"));
+        add(new Heading(1, "Testing"));
     }
 }
