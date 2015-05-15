@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to='cqs'>
-    <inherits name='coza.healthbridge.Ui'/>
-
-    <stylesheet src="mps.css"/>
-
     <!-- Specify the app entry point class.                         -->
     <entry-point class='org.testingzone.client.Main'/>
 
@@ -17,5 +13,10 @@
 
     <!-- Resty GWT -->
     <inherits name="org.fusesource.restygwt.RestyGWT"/>
+    <!-- Guava -->
     <inherits name="com.google.common.collect.Collect"/>
+    <!-- GWT Bootstrap -->
+    <inherits name="com.github.gwtbootstrap.Bootstrap"/>
+    <!-- Mvp4g -->
+    <inherits name='com.mvp4g.Mvp4gModule'/>
 </module>

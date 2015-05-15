@@ -5,10 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.testingzone.config.MyConfig;
+import org.testingzone.config.CqsConfig;
 
 @Configuration
-@Import(MyConfig.class)
+@Import(CqsConfig.class)
 @SpringBootApplication
 public class Application {
 
