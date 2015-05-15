@@ -16,6 +16,7 @@
         <lombok.version>1.16.4</lombok.version>
         <guava.version>18.0</guava.version>
         <slf4j.version>1.7.12</slf4j.version>
+        <jtds.version>1.3.1</jtds.version>
     </properties>
     <groupId>org.testingzone</groupId>
     <version>1.0-SNAPSHOT</version>
@@ -56,7 +57,7 @@
         <dependency>
             <groupId>net.sourceforge.jtds</groupId>
             <artifactId>jtds</artifactId>
-            <version>1.3.1</version>
+            <version>${jtds.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testingzone</groupId>
@@ -85,12 +86,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-log4j12</artifactId>-->
-            <!--<version>${slf4j.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
     </dependencies>
 
     <build>
