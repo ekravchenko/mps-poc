@@ -18,7 +18,7 @@ public final class Query {
     private final List<JoinRequest> joinRequests;
 
     private Query() {
-        this(new BooleanBuilder(), new LinkedList<JoinRequest>());
+        this(new BooleanBuilder(), new LinkedList<>());
     }
 
     private Query(BooleanBuilder booleanBuilder, List<JoinRequest> joinRequests) {
