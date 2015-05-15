@@ -1,6 +1,6 @@
 package org.testingzone.dbl.contact.data;
 
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 public enum AddressType {
 
@@ -19,7 +19,7 @@ public enum AddressType {
 
     public static AddressType valueOf(Integer id) {
         for (AddressType addressType : values()) {
-            if (Objects.equal(id, addressType.id)) {
+            if (Objects.equals(id, addressType.id)) {
                 return addressType;
             }
         }
