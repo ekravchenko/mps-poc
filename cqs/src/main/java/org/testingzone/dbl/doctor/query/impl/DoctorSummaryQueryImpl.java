@@ -9,8 +9,6 @@ import org.testingzone.dbl.base.query.builder.join.JoinRequest;
 import org.testingzone.dbl.base.query.builder.join.LeftJoinRequest;
 import org.testingzone.dbl.base.query.builder.sort.SortExpression;
 import org.testingzone.dbl.doctor.query.DoctorSummaryQuery;
-import org.testingzone.dbl.doctor.query.impl.DoctorSortExpressionProvider;
-import org.testingzone.dbl.doctor.query.impl.DoctorSummaryQueryItems;
 import org.testingzone.dbo.base.InfoWrapperList;
 import org.testingzone.dbo.business.QBusiness;
 import org.testingzone.dbo.doctor.QDoctor;
