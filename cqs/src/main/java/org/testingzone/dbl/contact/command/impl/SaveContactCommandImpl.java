@@ -1,6 +1,6 @@
 package org.testingzone.dbl.contact.command.impl;
 
-import org.mockito.internal.util.Checks;
+import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +35,7 @@ public class SaveContactCommandImpl implements SaveContactCommand {
 
     @Override
     public BinaryKey saveContact(ContactData contactData) {
-        Checks.checkNotNull(contactData, "ContactData is null");
+        Preconditions.checkNotNull(contactData, "ContactData is null");
 
         BinaryKey contactPK = new SafeBinaryKey(contactData.contactPK).key();
         if (contactPK == null) {
