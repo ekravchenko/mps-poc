@@ -2,7 +2,7 @@ server:
     contextPath: /mps/api/v2
 
 datasource:
-    driver: net.sourceforge.jtds.jdbc.Driver
+    driverClassName: net.sourceforge.jtds.jdbc.Driver
     url: jdbc:jtds:sqlserver://mssqlhost:1433/mypractice;
     username: sa
     password: Qwerty123
