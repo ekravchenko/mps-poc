@@ -11,8 +11,7 @@ public interface JoinRequest {
      * Apply join to JPAQuery object
      *
      * @param jpaQuery - JPAQuery to apply join to. Should never be null
-     *
      * @return JPAQuery with join
      */
-    public JPAQuery applyJoin(JPAQuery jpaQuery);
+    JPAQuery applyJoin(JPAQuery jpaQuery);
 }

@@ -47,7 +47,7 @@ public final class QueryItem {
      */
     public QueryItem(Predicate predicate, JoinRequest... joins) {
         this.predicate = predicate;
-        this.joins = (joins != null) ? Arrays.asList(joins) : new ArrayList<JoinRequest>();
+        this.joins = (joins != null) ? Arrays.asList(joins) : new ArrayList<>();
     }
 
     /**

@@ -20,7 +20,7 @@ public final class QueryBuilder<Filter> {
     private final QueryParams<Filter> queryParams;
 
     public QueryBuilder(EntityManager entityManager, QueryProvider<Filter> queryProvider) {
-        this(entityManager, queryProvider, new QueryParams<Filter>());
+        this(entityManager, queryProvider, new QueryParams<>());
     }
 
     private QueryBuilder(EntityManager entityManager, QueryProvider<Filter> queryProvider, QueryParams<Filter> queryParams) {
@@ -40,7 +40,7 @@ public final class QueryBuilder<Filter> {
     }
 
     public QueryBuilder<Filter> joins(JoinRequest... joins) {
-        List<JoinRequest> joinsList = (joins != null) ? Arrays.asList(joins) : new ArrayList<JoinRequest>();
+        List<JoinRequest> joinsList = (joins != null) ? Arrays.asList(joins) : new ArrayList<>();
         return joins(joinsList);
     }
 

@@ -7,19 +7,20 @@
         <version>1.2.3.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cqs</artifactId>
+    <artifactId>mps-server</artifactId>
+    <groupId>org.testingzone</groupId>
+    <version>1.0-SNAPSHOT</version>
+
     <properties>
         <querydsl.version>3.6.2</querydsl.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
         <h2.version>1.4.187</h2.version>
-        <cqs-api.version>1.0-SNAPSHOT</cqs-api.version>
+        <mps-api.version>1.0-SNAPSHOT</mps-api.version>
         <lombok.version>1.16.4</lombok.version>
         <guava.version>18.0</guava.version>
         <slf4j.version>1.7.12</slf4j.version>
         <jtds.version>1.3.1</jtds.version>
     </properties>
-    <groupId>org.testingzone</groupId>
-    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -61,8 +62,8 @@
         </dependency>
         <dependency>
             <groupId>org.testingzone</groupId>
-            <artifactId>cqs-api</artifactId>
-            <version>${cqs-api.version}</version>
+            <artifactId>mps-api</artifactId>
+            <version>${mps-api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

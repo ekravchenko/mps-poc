@@ -18,7 +18,7 @@ public final class QueryParams<Filter> {
     private final List<JoinRequest> joinRequests;
 
     public QueryParams() {
-        this(null, new ArrayList<JoinRequest>(), PageFilter.NONE, SortExpression.NONE);
+        this(null, new ArrayList<>(), PageFilter.NONE, SortExpression.NONE);
     }
 
     private QueryParams(Filter filter, List<JoinRequest> joinRequests, PageFilter pageFilter, SortExpression sortExpression) {

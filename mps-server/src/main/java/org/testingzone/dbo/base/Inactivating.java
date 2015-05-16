@@ -7,5 +7,5 @@ package org.testingzone.dbo.base;
  */
 @SuppressWarnings("UnusedDeclaration")
 public interface Inactivating {
-    public void setEntityStatus(Integer entityStatus);
+    void setEntityStatus(Integer entityStatus);
 }
