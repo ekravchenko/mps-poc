@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module rename-to='cqs'>
+<module rename-to='mps'>
     <!-- Specify the app entry point class.                         -->
     <entry-point class='org.testingzone.client.Main'/>
 
