@@ -10,8 +10,8 @@ import org.testingzone.client.service.DoctorService;
 import org.testingzone.client.service.ErrorInfoDecoder;
 import org.testingzone.vo.base.SortOrder;
 import org.testingzone.vo.base.SummaryPageInfo;
-import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.DoctorSortProperty;
+import org.testingzone.vo.doctor.query.DoctorDetailsInfo;
 import org.testingzone.vo.doctor.query.DoctorSummaryInfo;
 import org.testingzone.vo.error.ErrorInfo;
 
