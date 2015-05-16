@@ -15,7 +15,7 @@ public class SummaryPageInfo<T> {
     private final List<T> items;
 
     public SummaryPageInfo(long totalCount) {
-        this(totalCount, new ArrayList<T>());
+        this(totalCount, new ArrayList<>());
     }
 
     @JsonCreator
