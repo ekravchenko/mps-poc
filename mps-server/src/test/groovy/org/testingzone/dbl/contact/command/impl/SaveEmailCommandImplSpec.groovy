@@ -1,5 +1,6 @@
 package org.testingzone.dbl.contact.command.impl
 
+import groovy.transform.NotYetImplemented
 import org.springframework.beans.factory.annotation.Autowired
 import org.testingzone.dbl.BaseSpecification
 import org.testingzone.dbl.contact.command.SaveEmailCommand
@@ -41,6 +42,10 @@ class SaveEmailCommandImplSpec extends BaseSpecification {
         then:
         contactEmail != null;
         contactEmail.getEmail() == email;
+    }
+
+    @NotYetImplemented
+    def "update existing email"() {
     }
 
     def "save email with null email string"() {
