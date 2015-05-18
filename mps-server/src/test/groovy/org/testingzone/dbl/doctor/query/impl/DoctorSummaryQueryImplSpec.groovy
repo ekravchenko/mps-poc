@@ -24,4 +24,22 @@ class DoctorSummaryQueryImplSpec extends Specification {
         then:
         count == 0l;
     }
+
+    def "count with business filter"() {
+        given:
+        def filter = new SimpleFilter("31", null);
+        when:
+        def count = doctorSummaryQuery.count(filter);
+        then:
+        count == 0l;
+    }
+
+    def "count with business and search text"() {
+        given:
+        def filter = new SimpleFilter("31", "test");
+        when:
+        def count = doctorSummaryQuery.count(filter);
+        then:
+        count == 0l;
+    }
 }
