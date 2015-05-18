@@ -6,3 +6,6 @@ spring:
     jpa:
         database: H2
         show-sql: true
+
+liquibase:
+    changeLog: classpath:/db/changelog-master.xml

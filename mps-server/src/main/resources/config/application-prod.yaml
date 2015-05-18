@@ -11,3 +11,6 @@ spring:
     jpa:
         database: SQL_SERVER
         show-sql: true
+
+liquibase:
+    enabled: false
