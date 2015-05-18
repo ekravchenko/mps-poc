@@ -80,6 +80,6 @@ class SaveEmailCommandImplSpec extends BaseSpecification {
         saveEmailCommand.saveEmail(contactPK, email);
         then:
         def e = thrown(IllegalArgumentException)
-        e.message == "Error finding contact. PK=1111"
+        e.message == "Error finding contact with pk 1111"
     }
 }
