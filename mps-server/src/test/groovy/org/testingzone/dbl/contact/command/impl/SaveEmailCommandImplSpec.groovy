@@ -44,7 +44,7 @@ class SaveEmailCommandImplSpec extends BaseSpecification {
         contactEmail.getEmail() == email;
     }
 
-    @NotYetImplemented
+   // @NotYetImplemented
     def "update existing email"() {
     }
 
