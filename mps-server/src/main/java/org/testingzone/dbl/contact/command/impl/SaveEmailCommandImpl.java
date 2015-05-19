@@ -9,6 +9,7 @@ import org.testingzone.dbl.contact.repository.ContactRepository;
 import org.testingzone.dbl.contact.repository.EmailRepository;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.base.RowVersion;
+import org.testingzone.dbo.base.SystemDataAwareDecorator;
 import org.testingzone.dbo.contact.Contact;
 import org.testingzone.dbo.contact.ContactEmail;
 
@@ -32,6 +33,8 @@ public class SaveEmailCommandImpl implements SaveEmailCommand {
 
         ContactEmail contactEmail = getEmail(contactPK);
         contactEmail.setEmail(email);
+        SystemDataAwareDecorator.prepare(contactEmail);
+
         contactEmail = emailRepository.save(contactEmail);
         return contactEmail.getContactEmailPk();
     }
