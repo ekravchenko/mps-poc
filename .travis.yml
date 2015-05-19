@@ -1,3 +1,4 @@
 language: java
 
-cd mps
+before_script:
+	- "cd mps"
