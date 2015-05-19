@@ -9,6 +9,7 @@ import org.testingzone.dbl.contact.repository.ContactRepository;
 import org.testingzone.dbl.contact.repository.EmailRepository;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.base.RowVersion;
+import org.testingzone.dbo.base.SafeBinaryKey;
 import org.testingzone.dbo.base.SystemDataAwareDecorator;
 import org.testingzone.dbo.contact.Contact;
 import org.testingzone.dbo.contact.ContactEmail;
@@ -44,7 +45,9 @@ public class SaveEmailCommandImpl implements SaveEmailCommand {
         ContactEmail email = emailRepository.findEmail(contactPK);
 
         if (email == null) {
-            Contact contact = contactRepository.getOne(contactPK);
+            Contact contact = contactRepository.findOne(contactPK);
+            String contactPKHex = new SafeBinaryKey(contactPK).hex();
+            Preconditions.checkArgument(contact != null, "Error finding contact with pk " + contactPKHex);
 
             email = new ContactEmail();
             email.setContact(contact);

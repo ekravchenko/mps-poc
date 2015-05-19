@@ -1,6 +1,5 @@
 package org.testingzone.dbl.contact.command.impl
 
-import groovy.transform.NotYetImplemented
 import org.springframework.beans.factory.annotation.Autowired
 import org.testingzone.dbl.BaseSpecification
 import org.testingzone.dbl.contact.command.SaveEmailCommand
@@ -10,6 +9,7 @@ import org.testingzone.dbo.base.BinaryKey
 import org.testingzone.dbo.base.SafeBinaryKey
 import org.testingzone.dbo.contact.Contact
 import org.testingzone.dbo.contact.ContactEmail
+import spock.lang.Ignore
 
 class SaveEmailCommandImplSpec extends BaseSpecification {
 
@@ -44,8 +44,9 @@ class SaveEmailCommandImplSpec extends BaseSpecification {
         contactEmail.getEmail() == email;
     }
 
-    @NotYetImplemented
+    @Ignore
     def "update existing email"() {
+        // TODO Build this test as soon as there is a proper way to load initial Data into test DB
     }
 
     def "save email with null email string"() {
@@ -71,7 +72,6 @@ class SaveEmailCommandImplSpec extends BaseSpecification {
         e.message == "Contact PK is null"
     }
 
-    @NotYetImplemented
     def "save email with not existing contact pk"() {
         given:
         contactPK = new SafeBinaryKey("1111").key();
