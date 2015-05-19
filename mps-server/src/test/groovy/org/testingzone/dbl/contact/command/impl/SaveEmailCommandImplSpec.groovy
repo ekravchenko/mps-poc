@@ -71,6 +71,7 @@ class SaveEmailCommandImplSpec extends BaseSpecification {
         e.message == "Contact PK is null"
     }
 
+    @NotYetImplemented
     def "save email with not existing contact pk"() {
         given:
         contactPK = new SafeBinaryKey("1111").key();
