@@ -7,6 +7,7 @@ import com.mysema.query.types.*;
 /**
  * Implementation of JoinRequest interface that provides <b>left join</b> functionality
  */
+@SuppressWarnings("unchecked")
 public class LeftJoinRequest extends BaseJoinRequest {
 
     public LeftJoinRequest(Expression target, Path alias) {
@@ -18,13 +19,11 @@ public class LeftJoinRequest extends BaseJoinRequest {
         return jpaQuery.leftJoin(target, alias);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     protected JPAQuery applyJoin(JPAQuery jpaQuery, CollectionExpression target, Path alias) {
         return jpaQuery.leftJoin(target, alias);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     protected JPAQuery applyJoin(JPAQuery jpaQuery, MapExpression target, Path alias) {
         return jpaQuery.leftJoin(target, alias);
