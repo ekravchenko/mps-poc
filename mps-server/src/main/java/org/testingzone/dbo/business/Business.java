@@ -8,7 +8,6 @@ import org.testingzone.dbo.base.AbstractSystemEntity;
 import org.testingzone.dbo.base.BinaryKey;
 import org.testingzone.dbo.base.Inactivating;
 import org.testingzone.dbo.contact.Contact;
-import org.testingzone.dbo.doctor.Doctor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -54,9 +53,6 @@ public class Business extends AbstractSystemEntity implements Inactivating {
 
     @Column(name = "BillingNumber", nullable = false, length = 13)
     private String billingNumber;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "business")
-    private Set<Doctor> doctors = new HashSet<>(0);
 
     @Column(name = "RowVersion", nullable = false)
     private Integer rowVersion;
