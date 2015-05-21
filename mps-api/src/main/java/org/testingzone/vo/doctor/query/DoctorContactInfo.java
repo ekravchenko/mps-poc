@@ -2,8 +2,10 @@ package org.testingzone.vo.doctor.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Value;
 
-public class DoctorContactInfo {
+@Value
+public final class DoctorContactInfo {
 
     public static final DoctorContactInfo EMPTY = new DoctorContactInfo(null, null, null, null, null, null);
 
@@ -33,29 +35,5 @@ public class DoctorContactInfo {
         this.homeTelephone = homeTelephone;
         this.officeTelephone = officeTelephone;
         this.email = email;
-    }
-
-    public String getContactPK() {
-        return contactPK;
-    }
-
-    public String getCellTelephone() {
-        return cellTelephone;
-    }
-
-    public String getFaxTelephone() {
-        return faxTelephone;
-    }
-
-    public String getHomeTelephone() {
-        return homeTelephone;
-    }
-
-    public String getOfficeTelephone() {
-        return officeTelephone;
-    }
-
-    public String getEmail() {
-        return email;
     }
 }

@@ -2,9 +2,11 @@ package org.testingzone.vo.doctor.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Value;
 
 import java.util.List;
 
+@Value
 public final class DoctorDetailsInfo {
 
     @JsonProperty
@@ -21,17 +23,5 @@ public final class DoctorDetailsInfo {
         this.doctorInfo = doctorInfo;
         this.doctorContactInfo = doctorContactInfo;
         this.doctorNetworkInfos = doctorNetworkInfos;
-    }
-
-    public DoctorInfo getDoctorInfo() {
-        return doctorInfo;
-    }
-
-    public DoctorContactInfo getDoctorContactInfo() {
-        return doctorContactInfo;
-    }
-
-    public List<DoctorNetworkInfo> getDoctorNetworkInfos() {
-        return doctorNetworkInfos;
     }
 }

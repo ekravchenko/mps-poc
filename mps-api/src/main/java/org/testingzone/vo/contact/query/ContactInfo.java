@@ -2,8 +2,10 @@ package org.testingzone.vo.contact.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Value;
 import org.testingzone.vo.contact.data.AddressData;
 
+@Value
 public final class ContactInfo {
 
     @JsonProperty
@@ -40,37 +42,5 @@ public final class ContactInfo {
         this.postalAddress = postalAddressData;
         this.physicalAddress = physicalAddressData;
         this.email = email;
-    }
-
-    public String getContactPK() {
-        return contactPK;
-    }
-
-    public String getCellTelephone() {
-        return cellTelephone;
-    }
-
-    public String getFaxTelephone() {
-        return faxTelephone;
-    }
-
-    public String getHomeTelephone() {
-        return homeTelephone;
-    }
-
-    public String getOfficeTelephone() {
-        return officeTelephone;
-    }
-
-    public AddressData getPostalAddress() {
-        return postalAddress;
-    }
-
-    public AddressData getPhysicalAddress() {
-        return physicalAddress;
-    }
-
-    public String getEmail() {
-        return email;
     }
 }

@@ -2,8 +2,10 @@ package org.testingzone.vo.doctor.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Value;
 
-public class DoctorSummaryInfo {
+@Value
+public final class DoctorSummaryInfo {
 
     @JsonProperty
     private final String id;
@@ -33,25 +35,5 @@ public class DoctorSummaryInfo {
         this.billingPracticeNumber = billingPracticeNumber;
         this.practiceName = practiceName;
         this.speciality = speciality;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public String getBillingPracticeNumber() {
-        return billingPracticeNumber;
-    }
-
-    public String getSpeciality() {
-        return speciality;
-    }
-
-    public String getPracticeName() {
-        return practiceName;
     }
 }

@@ -2,8 +2,10 @@ package org.testingzone.vo.doctor.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Value;
 import org.testingzone.vo.person.Title;
 
+@Value
 public final class DoctorInfo {
 
     @JsonProperty
@@ -44,41 +46,5 @@ public final class DoctorInfo {
         this.treatingNumber = treatingNumber;
         this.personPK = personPK;
         this.contactPK = contactPK;
-    }
-
-    public String getDoctorPK() {
-        return doctorPK;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public Title getTitle() {
-        return title;
-    }
-
-    public String getSpeciality() {
-        return speciality;
-    }
-
-    public String getBillingNumber() {
-        return billingNumber;
-    }
-
-    public String getTreatingNumber() {
-        return treatingNumber;
-    }
-
-    public String getPersonPK() {
-        return personPK;
-    }
-
-    public String getContactPK() {
-        return contactPK;
     }
 }

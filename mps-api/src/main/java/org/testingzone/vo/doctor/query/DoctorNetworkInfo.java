@@ -2,7 +2,9 @@ package org.testingzone.vo.doctor.query;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Value;
 
+@Value
 public final class DoctorNetworkInfo {
 
     @JsonProperty
@@ -23,21 +25,5 @@ public final class DoctorNetworkInfo {
         this.scheme = scheme;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
-    }
-
-    public String getDoctorNetworkPK() {
-        return doctorNetworkPK;
-    }
-
-    public String getScheme() {
-        return scheme;
-    }
-
-    public Long getDateFrom() {
-        return dateFrom;
-    }
-
-    public Long getDateTo() {
-        return dateTo;
     }
 }
