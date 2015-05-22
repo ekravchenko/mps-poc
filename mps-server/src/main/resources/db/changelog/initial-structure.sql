@@ -199,7 +199,7 @@ CREATE TABLE doctor_network
   CreatedBy         VARCHAR(100)              NOT NULL,
   UpdatedBy         VARCHAR(100)              NOT NULL,
   RowVersion        INT                       NOT NULL,
-  EntityStatus_FK   INT DEFAULT ((1))         NOT NULL,
+  EntityStatus_FK   INT DEFAULT 1,
   SchemeDescription VARCHAR(128)              NOT NULL
 );
 
