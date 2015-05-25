@@ -1,12 +1,16 @@
 package org.testingzone.vo.error;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public final class ErrorInfo {
 
     public final static ErrorInfo EMPTY = new ErrorInfo(null, null);
 
-    private final String errorId;
-    private final String message;
+    private String errorId;
+    private String message;
 }

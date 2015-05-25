@@ -1,14 +1,18 @@
 package org.testingzone.vo.base;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
-public final class SortFilter {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class SortFilter {
 
     public final static SortFilter NONE = new SortFilter(null, null);
 
-    private final String sortProperty;
-    private final SortOrder sortOrder;
+    private String sortProperty;
+    private SortOrder sortOrder;
 
     public static SortFilter create(String sortProperty, SortOrder sortOrder) {
         if (sortProperty == null || sortOrder == null) {

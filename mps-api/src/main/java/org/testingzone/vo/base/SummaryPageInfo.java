@@ -1,22 +1,16 @@
 package org.testingzone.vo.base;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public final class SummaryPageInfo<T> {
 
-    @JsonProperty
-    private final long totalCount;
-    @JsonProperty
-    private final List<T> items;
-
-    @JsonCreator
-    public SummaryPageInfo(@JsonProperty("totalCount") long totalCount, @JsonProperty("items") List<T> items) {
-        this.totalCount = totalCount;
-        this.items = items;
-    }
+    private long totalCount;
+    private List<T> items;
 }

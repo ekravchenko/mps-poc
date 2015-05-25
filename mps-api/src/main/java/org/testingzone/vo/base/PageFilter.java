@@ -1,14 +1,18 @@
 package org.testingzone.vo.base;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
-public final class PageFilter {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class PageFilter {
 
     public static final PageFilter NONE = new PageFilter(0, 0);
 
-    private final int pageIndex;
-    private final int itemsPerPage;
+    private int pageIndex;
+    private int itemsPerPage;
 
     public static PageFilter create(Integer pageIndex, Integer itemsPerPage) {
         if (pageIndex == null || itemsPerPage == null) {

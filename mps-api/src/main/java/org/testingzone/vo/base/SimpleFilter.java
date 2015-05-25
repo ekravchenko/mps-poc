@@ -1,12 +1,16 @@
 package org.testingzone.vo.base;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
-public final class SimpleFilter {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class SimpleFilter {
 
     public static final SimpleFilter EMPTY = new SimpleFilter(null, null);
 
-    private final String businessPK;
-    private final String text;
+    private String businessPK;
+    private String text;
 }
