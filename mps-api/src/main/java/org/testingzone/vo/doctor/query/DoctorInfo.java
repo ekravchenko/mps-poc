@@ -5,10 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.testingzone.vo.person.Title;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public final class DoctorInfo {
+public final class DoctorInfo implements Serializable {
 
     private String doctorPK;
     private String personPK;

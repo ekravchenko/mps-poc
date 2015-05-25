@@ -1,4 +1,4 @@
-package org.testingzone.rest.etc;
+package org.testingzone.web.etc;
 
 import org.springframework.stereotype.Component;
 

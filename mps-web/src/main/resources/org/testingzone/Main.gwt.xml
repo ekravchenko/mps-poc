@@ -11,8 +11,6 @@
 
     <public path='css'/>
 
-    <!-- Resty GWT -->
-    <inherits name="org.fusesource.restygwt.RestyGWT"/>
     <!-- Guava -->
     <inherits name="com.google.common.collect.Collect"/>
     <!-- GWT Bootstrap -->

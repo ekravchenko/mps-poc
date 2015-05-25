@@ -5,10 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.testingzone.vo.contact.data.AddressData;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public final class ContactInfo {
+public final class ContactInfo implements Serializable {
 
     private String contactPK;
     private String cellTelephone;

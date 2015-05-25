@@ -15,11 +15,8 @@
     <properties>
         <!-- GWT needs at least java 1.5 -->
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
-        <gwt.version>2.7.0</gwt.version>
         <mvp4g.version>1.5.0</mvp4g.version>
-        <javax.rs-api.version>2.0.1</javax.rs-api.version>
         <gwt-bootstrap.version>2.3.2.0</gwt-bootstrap.version>
-        <restygwt.version>2.0.2</restygwt.version>
         <lombok.path>
             ${settings.localRepository}/org/projectlombok/lombok/${lombok.version}/lombok-${lombok.version}.jar
         </lombok.path>
@@ -47,11 +44,6 @@
             <version>${mvp4g.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.fusesource.restygwt</groupId>
-            <artifactId>restygwt</artifactId>
-            <version>${restygwt.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava-gwt</artifactId>
             <version>${guava.version}</version>
@@ -60,12 +52,6 @@
             <groupId>com.github.gwtbootstrap</groupId>
             <artifactId>gwt-bootstrap</artifactId>
             <version>${gwt-bootstrap.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>${javax.rs-api.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

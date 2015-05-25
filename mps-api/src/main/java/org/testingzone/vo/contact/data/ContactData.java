@@ -1,6 +1,8 @@
 package org.testingzone.vo.contact.data;
 
-public class ContactData {
+import java.io.Serializable;
+
+public class ContactData implements Serializable {
     public String contactPK;
 
     public String cellTelephone;

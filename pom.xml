@@ -13,6 +13,7 @@
         <spring-boot.version>1.2.3.RELEASE</spring-boot.version>
         <guava.version>18.0</guava.version>
         <lombok.version>1.16.4</lombok.version>
+        <gwt.version>2.7.0</gwt.version>
 
         <groovy-plugin.version>1.4</groovy-plugin.version>
         <surefire-plugin.version>2.6</surefire-plugin.version>

@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SortFilter {
+public class SortFilter implements Serializable {
 
     public final static SortFilter NONE = new SortFilter(null, null);
 

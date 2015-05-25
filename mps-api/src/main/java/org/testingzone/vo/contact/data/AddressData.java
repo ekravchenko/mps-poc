@@ -1,6 +1,8 @@
 package org.testingzone.vo.contact.data;
 
-public class AddressData {
+import java.io.Serializable;
+
+public class AddressData implements Serializable {
 
     public static final AddressData EMPTY = new AddressData();
 
