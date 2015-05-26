@@ -1,15 +1,14 @@
 package org.testingzone.vo.doctor.query;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public final class DoctorContactInfo implements Serializable {
+public final class DoctorContactInfo implements IsSerializable {
 
     public static final DoctorContactInfo EMPTY = new DoctorContactInfo(null, null, null, null, null, null);
 

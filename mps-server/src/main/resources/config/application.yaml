@@ -1,5 +1,5 @@
 server:
-    contextPath: /mps/api/v2
+    contextPath: /mps
 
 datasource:
     driverClassName: org.h2.Driver

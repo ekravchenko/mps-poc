@@ -1,6 +1,8 @@
 package org.testingzone.vo.base;
 
-public enum SortOrder {
+import com.google.gwt.user.client.rpc.IsSerializable;
+
+public enum SortOrder implements IsSerializable {
 
     ASC, DESC;
 

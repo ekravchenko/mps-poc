@@ -15,7 +15,7 @@
 
     <servlet-mapping>
         <servlet-name>proxy</servlet-name>
-        <url-pattern>/services/*</url-pattern>
+        <url-pattern>/mps/services/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -1,15 +1,14 @@
 package org.testingzone.vo.base;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimpleFilter implements Serializable {
+public class SimpleFilter implements IsSerializable {
 
     public static final SimpleFilter EMPTY = new SimpleFilter(null, null);
 

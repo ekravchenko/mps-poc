@@ -1,8 +1,8 @@
 package org.testingzone.vo.contact.data;
 
-import java.io.Serializable;
+import com.google.gwt.user.client.rpc.IsSerializable;
 
-public class ContactData implements Serializable {
+public class ContactData implements IsSerializable {
     public String contactPK;
 
     public String cellTelephone;

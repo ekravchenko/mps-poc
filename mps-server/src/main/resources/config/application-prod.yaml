@@ -1,5 +1,5 @@
 server:
-    contextPath: /mps/api/v2
+    contextPath: /mps
 
 datasource:
     driverClassName: net.sourceforge.jtds.jdbc.Driver
