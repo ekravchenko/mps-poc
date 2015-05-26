@@ -8,4 +8,14 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <servlet>
+        <servlet-name>proxy</servlet-name>
+        <servlet-class>org.testingzone.server.servlet.MyProxyServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>proxy</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
